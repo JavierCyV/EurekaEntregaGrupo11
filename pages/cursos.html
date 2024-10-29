@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grupo 11 - Eureka</title>
+        <link rel="icon" href="../img/favicon.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
+        <link rel="stylesheet" href="../styles/style.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <script src="../scripts/js.js"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <nav class="navbar-brand">
+                <div class="navbar-item">
+                    <a href="../index.html">
+                        <img src="../assets/logo.jfif" alt="Eureka">
+                    </a>
+                </div>
+        
+                <a role="button" class="navbar-burger has-dropdown" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+        
+                <div id="navbar-menu" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a href="./cursos.html" class="navbar-item">Cursos</a>
+                        <a href="./foro.html" class="navbar-item">Foros</a>
+                        <a href="./contacto.html" class="navbar-item">Contacto</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <!-- Rectángulos -->
+                <div class="rectangulo" onclick="openModal(1)">
+                    <div class="course-name">Web Developer</div>
+                    <div class="course-content">Contenido del curso 1</div>
+                    <div class="course-price">$100</div>
+                </div>
+                <div class="rectangulo" onclick="openModal(2)">
+                    <div class="course-name">FullStack Developer</div>
+                    <div class="course-content">Contenido del curso 2</div>
+                    <div class="course-price">$200</div>
+                </div>
+                <div class="rectangulo" onclick="openModal(3)">
+                    <div class="course-name">Python</div>
+                    <div class="course-content">Contenido del curso 3</div>
+                    <div class="course-price">$300</div>
+                </div>
+                <div class="rectangulo" onclick="openModal(4)">
+                    <div class="course-name">Data Analyst</div>
+                    <div class="course-content">Contenido del curso 4</div>
+                    <div class="course-price">$400</div>
+                </div>
+                <div class="rectangulo" onclick="openModal(5)">
+                    <div class="course-name">Java</div>
+                    <div class="course-content">Contenido del curso 5</div>
+                    <div class="course-price">$500</div>
+                </div>
+                <div class="rectangulo" onclick="openModal(6)">
+                    <div class="course-name">JavaScript</div>
+                    <div class="course-content">Contenido del curso 6</div>
+                    <div class="course-price">$600</div>
+                </div>
+                <div class="rectangulo" onclick="openModal(7)">
+                    <div class="course-name">C#</div>
+                    <div class="course-content">Contenido del curso 7</div>
+                    <div class="course-price">$700</div>
+                </div>
+                <div class="rectangulo" onclick="openModal(8)">
+                    <div class="course-name">SQL</div>
+                    <div class="course-content">Contenido del curso 8</div>
+                    <div class="course-price">$800</div>
+                </div>
+            </div>
+    
+            <!-- Modal -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 id="modalTitle">Título</h2>
+                    <p id="modalText">Contenido del modal.</p>
+                </div>
+            </div>
+        </main>
+    
+        <script src="../scripts/js.js"></script>
+    </body>
+</html>
