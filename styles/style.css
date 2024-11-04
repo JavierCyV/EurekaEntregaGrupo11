@@ -18,54 +18,71 @@ body::-webkit-scrollbar {
   display: none; /* Estilo para ocultar la barra de scroll */
 }
 
-html, body {
+body {
+  font-family: var(--fuente);
   margin: 0;
   height: 100%;
   min-height: 100%;
-  padding-top: 50px;
+  padding-top: 80px;
   background-color: var(--backgroundGeneral);
   color: var(--letters);
 }
 
 /* Navbar */
-
-.navbar-brand { 
-  background-color: var(--backgroundGeneral);
-  font-family: var(--fuente);
-  font-weight: bold;
-  letter-spacing: 2px;
-  height: 80px;
-  padding: 0 5%;
-}
-
 header {
+  font-family: var(--fuente);
   height: 80px;
-  min-width: 100%;
-  position: absolute;
+  width: 100%;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
 }
 
-.navbar-item{
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background-color: var(--backgroundGeneral);
+  height: 80px;
+}
+
+#navbar .navbar-brand { 
+  font-family: var(--fuente);
+  font-weight: bold;
+  letter-spacing: 2px;
   color: var(--letters);
 }
 
-.navbar-item img{
+#navbar .navbar-menu {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--backgroundGeneral);
+  align-items: right;
+}
+
+#navbar .navbar-item {
+  color: var(--letters);
+  font-family: var(--fuente);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#navbar .navbar-item img {
   max-height: 3rem;
 }
 
-a.navbar-item:hover{
+#navbar a.navbar-item:hover {
   color: var(--letters-hover);
 }
 
-a.navbar-item.is-active{
+#navbar a.navbar-item.is-active {
   color: var(--letters);
-  
 }
 
-.navbar-menu.is-active {
-  display: block;
+#navbar .navbar-menu.is-active {
+  display: flex;
   background-color: var(--backgroundGeneral);
 }
 
