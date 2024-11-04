@@ -15,16 +15,16 @@
         <script src="../scripts/js.js"></script>
     </head>
     <body>
-        <!-- Header -->
         <header>
             <nav class="navbar-brand">
                 <div class="navbar-item">
-                    <a href="../index.html">
-                        <img src="../assets/logo.jfif" alt="Eureka">
+                    <a href="index.html">
+                        <img src="../assets/logo.jfif" alt="Eureka"> EUREKA
                     </a>
                 </div>
         
-                <a role="button" class="navbar-burger has-dropdown" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                <a role="button" class="navbar" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                    <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -32,17 +32,65 @@
         
                 <div id="navbar-menu" class="navbar-menu">
                     <div class="navbar-end">
-                      <div class="navbar-end">
-                        <a href="./cursos.html" class="navbar-item">Cursos</a>
-                        <a href="./foro.html" class="navbar-item">Foros</a>
-                        <a href="./contacto.html" class="navbar-item">Contacto</a>
-                    </div>
+                        <a href="../pages/cursos.html" class="navbar-item">Cursos</a>
+                        <a href="../pages/foro.html" class="navbar-item">Foros</a>
+                        <a href="../pages/sitio.html" class="navbar-item">Contacto</a>
                     </div>
                 </div>
             </nav>
         </header>
-        <main>
-            
+        <div class="banner">
+            <a href="#" class="promo">Aprovechá 50% OFF en todos los Cursos + 6 cuotas sin interés - Solo por pocas horas</a>
+        </div>
+        <main class="main-content">
+            <section class="left-content">
+                <h1>Graduáte en <span>EUREKA</span> y<br><span class="highlight">abrí nuevas puertas<br>hacia tu futuro.</span></h1>
+                <p>Obtené tu CERTIFICADO OFICIAL con prácticas en entornos reales y la posibilidad de certificado intermedio al año de cursada.</p>
+                <div class="accreditation">
+                    <p>Institución acreditada por:</p>
+                    <img src="../assets/Screenshot 2024-11-04 142542.png" alt="Ministerio de Educación">
+                    <p>Carreras co-creadas con:</p>
+                    <img src="../assets/Carreras-cocreadas.gif" alt="Google">
+                </div>              
+            </section>
+            <section class="form-section">
+                <h2>INSCRIPCIONES ABIERTAS</h2>
+                <form action="#" method="post">
+                    <label for="name">Nombre*</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="course">Curso*</label>
+                    <input type="text" id="course" name="course" required>
+                    
+                    <label for="phone">Número de celular (sin 0 y sin 15)*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    
+                    <label for="email">Correo*</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Consulta*</label>
+                    <textarea id="message" name="message" required></textarea>
+                    
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
         </main>
+        <footer>
+            <div class="footer-container d-flex">
+                <div class="footer-text-container">
+                    <div class="row">
+                        <p class="footer-text">Materia: Diseño y Desarrollo Web</p>
+                        <p class="footer-text">Curso: 480799</p>
+                        <p class="footer-text">Grupo: 11</p>
+                    </div>
+                    <div class="row custom-row-1">
+                        <p class="footer-text">Todos los Derechos reservados - Sitio desarrollado para uso educativo - 2024</p>
+                    </div>
+                </div>
+                <div class="footer-image-container">
+                    <img src="../assets/UADE.svg" class="footer-image">
+                </div>
+            </div> 
+        </footer>
     </body>
 </html>

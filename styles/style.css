@@ -1,13 +1,10 @@
-
 /* Variables */
 :root {
   --letters: white;
   --letters-hover: #FFDD00; 
-
   --backgroundGeneral: #000000;
   --shadow: #DDDDDD;
-
-  --fuente: "Inter", sans-serif;;
+  --fuente: "Inter", sans-serif;
   --tamañoTitulo: 3rem;
   --tamañoSubtitulo: 2rem;
   --tamaño-p1: large;
@@ -15,24 +12,17 @@
   --tamaño-p3: small;
 }
 
-/*Estilos globales */
+/* Estilos globales */
 
 body::-webkit-scrollbar {
   display: none; /* Estilo para ocultar la barra de scroll */
 }
 
-header {
-  height: 80px; /* Altura del navbar */
-}
-
-html {
+html, body {
   margin: 0;
   height: 100%;
-}
-body {
+  min-height: 100%;
   padding-top: 50px;
-  margin: 0;
-  min-height:100%;
   background-color: var(--backgroundGeneral);
   color: var(--letters);
 }
@@ -79,7 +69,60 @@ a.navbar-item.is-active{
   background-color: var(--backgroundGeneral);
 }
 
+/* Footer */
 
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--backgroundGeneral);
+  padding: 10px 0;
+}
+
+.footer-container {
+  height: 80px;
+  padding: 10px 0;
+  margin-top: 1rem;
+}
+
+.footer-text-container {
+  width: 75%;
+  padding-left: 12.5%;
+  text-align: center;
+  color: var(--letters);
+}
+
+.footer-text {
+  font-size: small;
+  font-weight: bold;
+}
+
+.footer-image {
+  width: 100%;
+  max-width: 150px;
+}
+
+.footer-image-container {
+  text-align: center;
+  width: 32%;
+  padding: 0 5%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-row-1 {
+  justify-content: center;
+  padding-left: 12.5%;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 /* Main */
 
@@ -89,13 +132,11 @@ a.navbar-item.is-active{
   height: auto;
 }
 
-
 .imgPortada {
   width: 100%;
   height: auto;
   display: block;
 }
-
 
 .text-overlay {
   position: absolute;
@@ -119,36 +160,32 @@ a.navbar-item.is-active{
   font-size: var(--tamañoSubtitulo);
 }
 
-
 /* Cursos */
 
-/* Contenedor de rectángulos */
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columnas */
   gap: 6%;
   padding: 20px;
-  height: 60vh; /* Altura del contenedor para permitir espacio */
+  height: 60vh; /* Altura del contenedor */
   margin-top: 80px;
 }
 
-/* Rectángulos */
 .rectangulo {
-  padding-top: 15px;
-  background-color: black; /* Color de fondo negro */
-  color: white; /* Color del texto blanco */
+  background-color: black;
+  color: white;
   text-align: center;
-  border: 2px solid white; /* Borde blanco */
+  border: 2px solid white;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s; /* Transición para el hover */
-  width: 100%; /* 15% del ancho de la página */
-  height: 100%; /* 30% de la altura del contenedor */
+  transition: background-color 0.3s, transform 0.3s;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column; /* Para alinear verticalmente los elementos */
-  align-items: center; /* Centra horizontalmente el contenido */
-  justify-content: center; /* Centra verticalmente el contenido */
-  padding: 10px; /* Espacio interno */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
 .rectangulo:hover {
@@ -156,42 +193,42 @@ a.navbar-item.is-active{
 }
 
 .course-name {
-  font-size: 1.5rem; /* Tamaño grande */
-  font-weight: bold; /* Negrita */
-  margin-bottom: 5px; /* Espacio inferior */
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-/* Estilo para los contenidos de los cursos */
 .course-content {
-  font-size: small; /* Tamaño pequeño */
-  margin-bottom: 5px; /* Espacio inferior */
+  font-size: small;
+  margin-bottom: 5px;
 }
 
-/* Estilo para los precios de los cursos */
 .course-price {
-  font-size: medium; /* Tamaño intermedio */
+  font-size: medium;
 }
-/* Estilos del modal */
+
+/* Modal */
+
 .modal {
-  display: none; /* Oculto por defecto */
-  position: fixed; /* Fijo */
-  z-index: 1; /* En la parte superior */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Ancho completo */
-  height: 100%; /* Alto completo */
-  overflow: auto; /* Habilita desplazamiento si es necesario */
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
-  animation: fadeIn 0.3s; /* Animación de apertura */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s;
 }
 
 .modal-content {
   background-color: #fff;
-  margin: 15% auto; /* Centrado vertical y horizontal */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Ancho del modal */
-  animation: scaleIn 0.3s; /* Animación de escalado */
+  width: 80%;
+  animation: scaleIn 0.3s;
 }
 
 .close {
@@ -208,7 +245,102 @@ a.navbar-item.is-active{
   cursor: pointer;
 }
 
+/* Contacto */
+
+.banner {
+  background-color: #00aaff;
+  text-align: center;
+  padding: 10px;
+}
+
+.promo {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.left-content {
+  color: #fff;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.left-content h1 {
+  font-size: 36px;
+}
+
+.left-content h1 span,
+.left-content .highlight {
+  color: #00aaff;
+  font-weight: bold;
+}
+
+.accreditation {
+  margin-top: 20px;
+}
+
+.accreditation img {
+  width: 200px;
+  margin-top: 10px;
+}
+
+.form-section {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+  color: #000;
+}
+
+.form-section h2 {
+  color: #00aaff;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form label {
+  font-size: 14px;
+  text-align: left;
+}
+
+form input, form textarea {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+form button {
+  background-color: #00aaff;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0088cc;
+}
+
 /* Animaciones */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
