@@ -22,14 +22,21 @@ window.onclick = function(event) {
     }
 }
 
-fetch("navbar.html")
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("No se pudo cargar el navbar");
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-    })
-    .catch(error => console.error("Error al cargar el navbar:", error));
+// navbar.js
+function loadNavbar() {
+    fetch('navbar.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Problemas de conexion ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Tu navegador tiene un problema para cargar la navbar', error);
+        });
+}
+//llamado a la funcion (no lo borren)
+loadNavbar();
