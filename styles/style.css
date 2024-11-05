@@ -1,7 +1,7 @@
 /* Variables */
 :root {
-  --letters: white;
-  --letters-hover: #FFDD00; 
+  --letters-hover: #0a95dd;
+  --letters: #40d3e2;  
   --backgroundGeneral: #000000;
   --shadow: #DDDDDD;
   --fuente: "Inter", sans-serif;
@@ -13,6 +13,11 @@
 }
 
 /* Estilos globales */
+
+html {
+  margin: 0;
+  height: 100%;
+}
 
 body::-webkit-scrollbar {
   display: none; /* Estilo para ocultar la barra de scroll */
@@ -143,16 +148,25 @@ footer {
 
 /* Main */
 
-.img-container {
-  position: absolute;
-  width: 100vw;
-  height: auto;
+/* Index */
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra todo el área */
+  z-index: -1; /* Envía el video al fondo */
+}
+.columns{
+  padding-top: 100px;
 }
 
-.imgPortada {
-  width: 100%;
-  height: auto;
-  display: block;
+.titulo{
+  font-size: 8rem;
+  font-weight: 700;
+  padding-left: 10%;
 }
 
 .text-overlay {
