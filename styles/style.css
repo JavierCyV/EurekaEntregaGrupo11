@@ -33,6 +33,10 @@ body {
   color: var(--letters);
 }
 
+main {
+  margin-bottom: 40px;
+}
+
 /* Navbar */
 header {
   font-family: var(--fuente);
@@ -89,6 +93,10 @@ header {
 #navbar .navbar-menu.is-active {
   display: flex;
   background-color: var(--backgroundGeneral);
+}
+
+#navbar .navbar-reservas a.navbar-item{
+  color: #f2f2f2 !important;
 }
 
 /* Footer */
@@ -262,6 +270,16 @@ footer {
   animation: scaleIn 0.3s;
 }
 
+.modal-button {
+  display: inline-flex;
+  margin: 12px;
+  padding: 12px;
+  background-color: var(--backgroundGeneral);
+  color: var(--letters);
+  border-radius: 20px;
+}
+
+
 .close {
   color: #aaa;
   float: right;
@@ -368,6 +386,15 @@ form button {
 
 form button:hover {
   background-color: #0088cc;
+}
+
+/* Reservas */
+
+.container-reservas {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 30px;
 }
 
 /* Animaciones */
