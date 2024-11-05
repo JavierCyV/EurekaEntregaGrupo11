@@ -3,6 +3,7 @@
   --letters-hover: #0a95dd;
   --letters: #40d3e2;  
   --backgroundGeneral: #000000;
+  --backgroundSecundario: #f2f2f2;
   --shadow: #DDDDDD;
   --fuente: "Inter", sans-serif;
   --tamañoTitulo: 3rem;
@@ -31,10 +32,6 @@ body {
   padding-top: 80px;
   background-color: var(--backgroundGeneral);
   color: var(--letters);
-}
-
-main {
-  margin-bottom: 40px;
 }
 
 /* Navbar */
@@ -95,8 +92,8 @@ header {
   background-color: var(--backgroundGeneral);
 }
 
-#navbar .navbar-reservas a.navbar-item{
-  color: #f2f2f2 !important;
+#navbar.navbar-reservas .navbar-item {
+  color: var(--backgroundSecundario);
 }
 
 /* Footer */
@@ -212,9 +209,9 @@ footer {
 
 .rectangulo {
   background-color: black;
-  color: white;
+  color: var(--backgroundSecundario);
   text-align: center;
-  border: 2px solid white;
+  border: 2px solid var(--backgroundSecundario);
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
@@ -262,7 +259,7 @@ footer {
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: var(--backgroundSecundario);
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -331,7 +328,7 @@ footer {
 }
 
 .form-section {
-  background-color: #f2f2f2;
+  background-color: var(--backgroundSecundario);
   padding: 20px;
   border-radius: 5px;
   width: 300px;
@@ -428,9 +425,40 @@ form button:hover {
 
 .container-reservas {
   display: block;
+  height: 94vh;
+  padding: 40px;
+  background-color: var(--backgroundSecundario);
+  color: var(--backgroundGeneral);
+}
+
+.grid-container {
+  display: grid;
+  background-color: var(--backgroundSecundario);
+  grid-template-areas:
+    'reserva reserva reserva reserva pago pago';
+  min-height: 100%;
+}
+
+.reserva {
+  grid-area: reserva;
+  margin-right: 40px;
+}
+
+.pago {
+  grid-area: pago;
+}
+
+.border-containers {
+  border-style: solid;
+  border-width: 0px 2px 0px 0px;
+  border-color: #888;
+}
+
+.balance-f {
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 40px;
   width: 100%;
-  height: auto;
-  padding: 30px;
 }
 
 /* Animaciones */
