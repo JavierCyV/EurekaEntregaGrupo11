@@ -293,29 +293,19 @@ footer {
 
 /* Contacto */
 
-.banner {
-  background-color: #00aaff;
-  text-align: center;
-  padding: 10px;
-}
-
-.promo {
-  color: var(--backgroundSecundario);
-  font-weight: bold;
-  text-decoration: none;
-}
-
 .main-content {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas más pequeñas */
 }
 
 .left-content {
   color: #fff;
   max-width: 500px;
   padding: 20px;
+  flex: 1; /* Permite que el contenido ocupe espacio flexible */
 }
 
 .left-content h1 {
@@ -368,21 +358,67 @@ form input, form textarea {
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%;
+}
+
+form input, form textarea, form button {
+    transition: all .3s ease; /* Transición suave para todos los elementos de formulario */
+}
+
+form input:hover, form textarea:hover {
+    border-color: #00aaff; /* Cambia el color del borde al pasar el mouse */
+    box-shadow: inset 0px 0px 5px rgba(0,170,255,0.5); /* Efecto de sombra */
 }
 
 form button {
-  background-color: #00aaff;
-  color: #fff;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    background-color: #00aaff;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 form button:hover {
-  background-color: #0088cc;
+    background-color: #0088cc; /* Cambia el color al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+}
+
+.banner {
+  overflow: hidden; /* Oculta el contenido que sale del contenedor */
+  position: relative; /* Necesario para la animación */
+  background-color: #00aaff;
+  text-align: center;
+  height: 40px;
+}
+
+.promo {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px;
+  font-size: 20px; /* Tamaño de fuente más pequeño */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  position: absolute; /* Permite mover el texto fuera del contenedor */
+  animation: slide-left 18s linear infinite; /* Añade la animación de deslizamiento */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+        padding: 20px; /* Reduce el padding en pantallas más pequeñas */
+    }
+
+    .form-section {
+        width: auto; /* Permite que la sección del formulario se ajuste automáticamente */
+        max-width: none; /* Elimina el ancho máximo para pantallas pequeñas */
+        margin-top:20px; /* Añade un margen superior para separación */
+    }
+
+    .left-content h1 {
+        font-size: 28px; /* Reduce el tamaño de la fuente en pantallas más pequeñas */
+    }
 }
 
 /* Reservas */
@@ -435,4 +471,17 @@ form button:hover {
 @keyframes scaleIn {
   from { transform: scale(0.7); }
   to { transform: scale(1); }
+}
+
+/* Definición de la animación */
+@keyframes slide-left {
+  0% {
+      transform: translateX(100%); /* Comienza fuera del lado derecho */
+  }
+  50% {
+    transform: translateX(0); /* Llega al centro del banner */
+  }
+  100% {
+      transform: translateX(-100%); /* Termina fuera del lado izquierdo */
+  }
 }
