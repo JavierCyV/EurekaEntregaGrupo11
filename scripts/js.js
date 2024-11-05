@@ -40,3 +40,4 @@ function loadNavbar() {
 }
 //llamado a la funcion (no lo borren)
 loadNavbar();
+
