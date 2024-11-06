@@ -155,46 +155,218 @@ footer {
 
 /* Index */
 
+/* Video de fondo limitado a la sección */
+
+.video-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .video-background {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Asegura que el video cubra todo el área */
-  z-index: -1; /* Envía el video al fondo */
-}
-.columns{
-  padding-top: 100px;
+  object-fit: cover;
+  z-index: -1;
 }
 
-.titulo{
-  font-size: 5rem;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  z-index: 1;
+}
+
+.title-and-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  padding-bottom: 10%;
+}
+
+.titulo {
+  font-size: 4rem;
   font-weight: 700;
-  padding-left: 10%;
+  text-align: left;
+  padding-right: 10rem;
+  color:var(--letters);
+}
+
+.boton button {
+  background-color: #00b3ff;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  text-decoration: underline; 
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.boton button:hover {
+  background-color: black; 
+  color: white; 
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6); 
 }
 
 .text-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--letters);
-  text-align: center;
-  font-family: var(--fuente);
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  color: #00d1b2; /* Color del texto */
 }
 
 .text-overlay h1 {
-  font-size: var(--tamañoTitulo);
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  font-family: 'Bebas Neue', sans-serif;
+  margin: 0.5em 0;
 }
 
 .text-overlay p {
-  font-size: var(--tamañoSubtitulo);
+  font-size: 1.2rem;
 }
+
+.text-overlay .button {
+  margin-top: 20px;
+}
+
+.empresas {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.empresas-texto {
+  font-size: 1.2rem;
+  color: #b0b0b0;
+  margin-bottom: 0.3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.empresas img {
+  width: 100px; /* Tamaño de los logos */
+  opacity: 0.7;
+}
+/* Sección de testimonios */
+
+/* Sección de testimonios */
+.testimonios {
+  padding: 55px 5%;
+  background-color: #1b1b1b;
+  color: white;
+}
+
+.testimonios h2 {
+  font-size: 2.5rem;
+  color: white;
+  text-align: left;
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.testimonios h2::after {
+  content: '';
+  display: block;
+  width: 50%; /* Ancho de la línea azul */
+  height: 3px;
+  background-color: #00d1b2; /* Color azul */
+  position: absolute;
+  bottom: -10px; /* Ajusta para que quede más abajo del título */
+  left: 0;
+}
+
+.testimonios p {
+  text-align: left;
+  position: relative;
+}
+
+
+.testimonios p::before,
+.testimonios p::after {
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+}
+
+.testimonios p::before {
+  left: -25px;
+  top: -10px;
+}
+
+.testimonios p::after {
+  right: -25px;
+  bottom: -10px;
+}
+
+.experiencia-tarjetas {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tarjeta {
+  background-color: #282828;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 250px;
+  color: #eaeaea;
+  border: 2px solid #40d3e2;
+  text-align: left;
+}
+
+.info-persona {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.foto-persona {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.nombre-fecha {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nombre-fecha h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.nombre-fecha h4 {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+.logo-linkedin {
+  margin-top: 10px;
+  display: block;
+}
+
+.tarjeta p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #eaeaea;
+}
+
 
 /* Cursos */
 
