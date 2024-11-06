@@ -597,7 +597,8 @@ form button:hover {
 
 .container-reservas {
   display: block;
-  height: 94vh;
+  min-height: 94vh;
+  height: auto;
   padding: 40px;
   background-color: var(--backgroundSecundario);
   color: var(--backgroundGeneral);
@@ -607,17 +608,23 @@ form button:hover {
   display: grid;
   background-color: var(--backgroundSecundario);
   grid-template-areas:
+    'reserva reserva reserva reserva pago pago'
+    'reserva reserva reserva reserva pago pago'
     'reserva reserva reserva reserva pago pago';
   min-height: 100%;
 }
 
 .reserva {
   grid-area: reserva;
+  grid-column: 1 / span 4;
   margin-right: 40px;
+  margin-bottom: 40px;
 }
 
 .pago {
   grid-area: pago;
+  grid-column: 5 / span 2;
+  width: 300px;
 }
 
 .border-containers {
@@ -631,6 +638,89 @@ form button:hover {
   bottom: 0;
   padding-bottom: 40px;
   width: 100%;
+}
+
+.calendar-container{
+  width: 300px;
+}
+
+@media only screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      'reserva reserva reserva reserva reserva reserva'
+      'reserva reserva reserva reserva reserva reserva'
+      'pago pago pago pago pago pago';
+  }
+  .reserva {
+    grid-area: reserva;
+    margin-right: 0px;
+    grid-column: 1 / span 6;
+  }
+  .pago {
+    grid-area: pago;
+    grid-column: 1 / span 6;
+    width: 100%;
+  }
+  .balance-f {
+    position: relative;
+    bottom: 0;
+    padding-bottom: 40px;
+    width: 100%;
+  }
+  .border-containers {
+    border-style: none;
+  }
+}
+
+/* Swiper - Reservas */
+
+.swiper-container {
+  display: inline-grid;
+  width: 80%;
+  height: 250px;
+  padding: 20px;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide .card-description{
+  padding:1rem 1rem;
+}
+.swiper-slide .card-title, .swiper-slide .card-text{
+ margin-bottom: .5rem;
+}
+.swiper-slide .card-button{
+ text-align: center;
+
+}
+.swiper-slide .card-link a{
+  text-decoration: none;
+  color: #1d6ce2;
 }
 
 /* Animaciones */
