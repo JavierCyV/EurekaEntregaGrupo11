@@ -6,9 +6,10 @@
         <title>Grupo 11 - Eureka</title>
         <link rel="icon" href="../assets/logo (2).jfif">
         <link rel="stylesheet" href="../styles/style.css">
-        <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <script src="../scripts/js.js"></script>
+        <script src="../scripts/swiper.js"></script>
     </head>
     <body>
         <header>
@@ -19,12 +20,113 @@
                 <div class="grid-container">
                     <div class="reserva border-containers">
                         <h1>Reserva</h1>
-                        <p>Selecciona la fecha de inicio de cursada</p>
-                        <p>Selecciona metodo de pago</p>
+                        <p>1. Seleccione el turno de la cursada</p>
+                        <!-- Swiper -->
+                        <div class="swiper-container">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="card-description">
+                                            <div class="card-title">
+                                                <h4>Descripción</h4>
+                                            </div>
+                                            <div class="card-text">
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum enim possimus dolorum non,
+                                                    modi
+                                                    sunt ips.</p>
+                                            </div>
+                                            <div class="card-button">
+                                                <form>
+                                                    <input type="submit" id="turno-m" name="turno-m" value="Seleccionar">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card-description">
+                                            <div class="card-title">
+                                                <h4>Descripción</h4>
+                                            </div>
+                                            <div class="card-text">
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum enim possimus dolorum non,
+                                                    modi
+                                                    sunt ips.</p>
+                                            </div>
+                                            <div class="card-button">
+                                                <form>
+                                                    <input type="submit" id="turno-m" name="turno-m" value="Seleccionar">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card-description">
+                                            <div class="card-title">
+                                                <h4>Descripción</h4>
+                                            </div>
+                                            <div class="card-text">
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum enim possimus dolorum non,
+                                                    modi
+                                                    sunt ips.</p>
+                                            </div>
+                                            <div class="card-button">
+                                                <form>
+                                                    <input type="submit" id="turno-m" name="turno-m" value="Seleccionar">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <p>2. Seleccione el profesor a cargo</p>
+                        <!-- Swiper -->
+                        <div class="swiper-container">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img src="img/01.jpg"
+                                        alt="">
+                                    <div class="card-description">
+                                        <div class="card-title">
+                                            <h4>Descripción</h4>
+                                        </div>
+                                        <div class="card-text">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum enim possimus dolorum non,
+                                                modi
+                                                sunt ips.</p>
+                                        </div>
+                                        <div class="card-link">
+                                            <form>
+                                                <input type="date" id="fecha-curso" name="fecha-curso">
+                                                <input type="submit">
+                                            </form>
+                                        </div>
+                                    </div></div>
+                                    <div class="swiper-slide">Slide 2</div>
+                                    <div class="swiper-slide">Slide 3</div>
+                                    <div class="swiper-slide">Slide 4</div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <p>3. Seleccione la fecha de inicio de cursada</p>
+                        <div class="calendar-container">
+                            <form>
+                                <input type="date" id="fecha-curso" name="fecha-curso">
+                                <input type="submit">
+                            </form>
+                        </div>
+                        <!-- <p>4. Seleccione metodo de pago</p> -->
                     </div>
                     <div class="pago">
                         <h1>Pago</h1>
                         <p>Detalle de compra</p>
+                        <input type="text"> <span>hola</span>
                         <div class="balance-f">
                             <p>Total: $$$</p>
                         </div>
@@ -32,5 +134,8 @@
                 </div>
             </div>
         </main>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="../scripts/swiper.js"></script>
     </body>
 </html>
