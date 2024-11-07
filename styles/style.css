@@ -44,7 +44,7 @@ header {
   left: 0;
   z-index: 10;
 }
-
+/* navbar.css */
 #navbar {
   display: flex;
   align-items: center;
@@ -94,6 +94,27 @@ header {
 
 #navbar.navbar-reservas .navbar-item {
   color: var(--backgroundSecundario);
+}
+
+.navbar-burger {
+  display: none;
+  cursor: pointer;
+  color: var(--letters); /* Asegúrate de que sea visible */
+}
+
+
+@media (max-width: 768px) {
+  .navbar-burger {
+    display: block;
+  }
+  #navbar .navbar-menu {
+    display: none;
+    
+  }
+  #navbar .navbar-menu.is-active {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* Footer */
@@ -163,6 +184,8 @@ footer {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  overflow: hidden;
+
 }
 
 .video-background {
@@ -181,14 +204,19 @@ footer {
   align-items: center;
   color: white;
   z-index: 1;
+  padding: 1rem;
+
 }
 
 .title-and-button {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 90%;
   padding-bottom: 10%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 2rem;
 }
 
 .titulo {
@@ -242,6 +270,7 @@ footer {
   gap: 0.8rem;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 1rem;
 }
 .empresas-texto {
   font-size: 1.2rem;
@@ -575,23 +604,7 @@ form button:hover {
   animation: slide-left 18s linear infinite; /* Añade la animación de deslizamiento */
 }
 
-/* Media Queries para Responsividad */
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
-        padding: 20px; /* Reduce el padding en pantallas más pequeñas */
-    }
 
-    .form-section {
-        width: auto; /* Permite que la sección del formulario se ajuste automáticamente */
-        max-width: none; /* Elimina el ancho máximo para pantallas pequeñas */
-        margin-top:20px; /* Añade un margen superior para separación */
-    }
-
-    .left-content h1 {
-        font-size: 28px; /* Reduce el tamaño de la fuente en pantallas más pequeñas */
-    }
-}
 
 /* Reservas */
 
@@ -644,6 +657,49 @@ form button:hover {
   width: 300px;
 }
 
+
+@media (max-width: 1600px){
+  .titulo {
+    font-size: 6rem;
+    font-weight: 700;
+    text-align: left;
+    padding-right: 10rem;
+    color: var(--letters);
+}
+
+.boton button {
+  background-color: #00b3ff;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem 1.5rem;
+  text-decoration: underline;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .boton button {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .empresas-texto {
+    font-size: 0.9rem;
+  }
+
+  .empresas img {
+    width: 60px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .grid-container {
     grid-template-areas:
@@ -670,7 +726,47 @@ form button:hover {
   .border-containers {
     border-style: none;
   }
+  .titulo {
+    font-size: 2.5rem;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .title-and-button {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5%;
+  }
+
+  .boton button {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .empresas-texto {
+    font-size: 1rem;
+  }
+
+  .empresas img {
+    width: 80px;
+  }
+
+  .main-content {
+    flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+    padding: 20px; /* Reduce el padding en pantallas más pequeñas */
 }
+
+.form-section {
+    width: auto; /* Permite que la sección del formulario se ajuste automáticamente */
+    max-width: none; /* Elimina el ancho máximo para pantallas pequeñas */
+    margin-top:20px; /* Añade un margen superior para separación */
+}
+
+.left-content h1 {
+    font-size: 28px; /* Reduce el tamaño de la fuente en pantallas más pequeñas */
+}
+}
+
 
 /* Swiper - Reservas */
 
