@@ -44,7 +44,7 @@ header {
   left: 0;
   z-index: 10;
 }
-/* navbar.css */
+
 #navbar {
   display: flex;
   align-items: center;
@@ -54,68 +54,124 @@ header {
   height: 80px;
 }
 
-#navbar .navbar-brand { 
+.navbar-brand { 
   font-family: var(--fuente);
   font-weight: bold;
   letter-spacing: 2px;
   color: var(--letters);
 }
 
-#navbar .navbar-menu {
+.navbar-menu {
   display: flex;
   gap: 1rem;
   background-color: var(--backgroundGeneral);
-  align-items: right;
 }
 
-#navbar .navbar-item {
+.navbar-item {
   color: var(--letters);
   font-family: var(--fuente);
   text-decoration: none;
   transition: color 0.3s;
 }
 
-#navbar .navbar-item img {
+.navbar-item img {
   max-height: 3rem;
 }
 
-#navbar a.navbar-item:hover {
+a.navbar-item:hover {
   color: var(--letters-hover);
 }
 
-#navbar a.navbar-item.is-active {
+a.navbar-item.is-active {
   color: var(--letters);
 }
 
-#navbar .navbar-menu.is-active {
-  display: flex;
-  background-color: var(--backgroundGeneral);
-}
-
-#navbar.navbar-reservas .navbar-item {
-  color: var(--backgroundSecundario);
-}
-
-.navbar-burger {
-  display: none;
-  cursor: pointer;
-  color: var(--letters); /* Asegúrate de que sea visible */
-}
-
-
+/* Mostrar menú hamburguesa en pantallas pequeñas */
 @media (max-width: 768px) {
-  .navbar-burger {
-    display: block;
+    .navbar-menu {
+        display: none; /* Ocultar menú por defecto */
+        flex-direction: column; /* Colocar elementos en columna */
+        position: absolute; /* Posición absoluta */
+        top: 80px; /* Debajo del navbar */
+        left: 0; /* Alineado a la izquierda */
+        width: calc(100% - 10%); /* Ancho completo menos el padding */
+        background-color: var(--backgroundGeneral); /* Color de fondo */
+        z-index: 10; /* Asegurarse de que esté encima de otros elementos */
+    }
+
+    .navbar-brand {
+      font-family: var(--fuente);
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: var(--letters);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: stretch;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
   }
-  #navbar .navbar-menu {
-    display: none;
-    
-  }
-  #navbar .navbar-menu.is-active {
-    display: flex;
-    flex-direction: column;
-  }
+
+    .navbar-menu.is-active {
+        display: flex; /* Mostrar menú cuando está activo */
+    }
+
+    .navbar-burger {
+        display: flex; /* Mostrar botón hamburguesa en pantallas pequeñas */
+        flex-direction: column; /* Colocar líneas en columna */
+        cursor: pointer; /* Cambiar cursor al pasar sobre el botón hamburguesa */
+    }
+
+    .navbar-burger span {
+        height: 2px; /* Altura de las líneas del botón */
+        width: 25px; /* Ancho de las líneas del botón */
+        background-color: var(--letters); /* Color de las líneas del botón */
+        margin-bottom: 4px; /* Espaciado entre las líneas */
+    }
 }
+
+/* Estilos para el modal del carrito */
+.modal-carrito {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    justify-content: center; /* Centrar contenido horizontalmente */
+    align-items: center; /* Centrar contenido verticalmente */
+}
+
+.modal-carrito.is-active {
+    display: flex; /* Mostrar cuando está activo */
+}
+
+.modal-background-carrito {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+}
+
+.modal-content-carrito {
+  background-color: black; 
+  padding: 2rem; 
+  border-radius: 8px;
+  border: 2px solid #00BFFF; 
+  color: white; 
+}
+
+.modal-close-carrito {
+  cursor: pointer; /* Cambiar cursor al pasar sobre el botón de cerrar */
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  color: #00BFFF; /* Color del texto, puedes ajustarlo */
+  font-size: 16px; /* Tamaño del texto */
+}
+
 
 /* Footer */
 
@@ -183,7 +239,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 120vh;
   overflow: hidden;
 
 }
@@ -289,7 +345,7 @@ footer {
 /* Sección de testimonios */
 .testimonios {
   padding: 55px 5%;
-  background-color: #1b1b1b;
+  background-color: var(--backgroundGeneral);
   color: white;
 }
 
@@ -457,6 +513,10 @@ footer {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
   animation: fadeIn 0.3s;
+}
+
+.modal.is-active {
+  display: flex; /* Mostrar cuando está activo */
 }
 
 .modal-content {
@@ -660,7 +720,7 @@ form button:hover {
 
 @media (max-width: 1600px){
   .titulo {
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: 700;
     text-align: left;
     padding-right: 10rem;

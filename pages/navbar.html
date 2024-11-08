@@ -1,4 +1,8 @@
 <!-- navbar.html -->
+
+<!-- navbar.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <nav id="navbar" class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="../index.html">
@@ -11,8 +15,21 @@
         </a>
     </div>
     <div id="navbar-menu" class="navbar-menu">
-        <a href="cursos.html" class="navbar-item">Cursos</a>
-        <a href="foro.html" class="navbar-item">Foros</a>
-        <a href="contacto.html" class="navbar-item">Contacto</a>
+        <a href="#" class="navbar-item" data-path="cursos.html">Cursos</a>
+        <a href="#" class="navbar-item" data-path="foro.html">Foros</a>
+        <a href="#" class="navbar-item" data-path="contacto.html">Contacto</a>
+        <a href="#" class="navbar-item" id="cart-button"><i class="fas fa-shopping-cart"></i></a> 
     </div>
 </nav>
+
+<!-- Modal del carrito -->
+<div id="cart-modal" class="modal-carrito">
+    <div class="modal-background-carrito"></div>
+    <div class="modal-content-carrito">
+        <div class="box">
+            <h2>Carrito de compras</h2>
+            <p>Tu carrito está vacío.</p>
+            <button class="modal-close is-large" aria-label="close">Cerrar</button> <!-- Botón para cerrar -->
+        </div>
+    </div>
+</div>
