@@ -717,6 +717,20 @@ form button:hover {
   width: 300px;
 }
 
+.card-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto-profesor {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
 
 @media (max-width: 1600px){
   .titulo {
@@ -760,7 +774,7 @@ form button:hover {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
   .grid-container {
     grid-template-areas:
       'reserva reserva reserva reserva reserva reserva'
@@ -853,7 +867,7 @@ form button:hover {
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   background: #fff;
   display: flex;
   justify-content: center;
