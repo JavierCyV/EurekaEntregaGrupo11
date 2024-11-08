@@ -825,6 +825,15 @@ form button:hover {
 .left-content h1 {
     font-size: 28px; /* Reduce el tamaño de la fuente en pantallas más pequeñas */
 }
+.video-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+
+}
 }
 
 
