@@ -244,7 +244,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 120vh;
+  height: 100vh;
   overflow: hidden;
 
 }
@@ -619,12 +619,13 @@ footer {
 
 .modal-content {
   background-color: var(--backgroundGeneral);
-  margin: 15% auto;
+  margin: 10% auto; /* Ajustamos los márgenes a un 10% */
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+  max-width: 80%; /* Aseguramos que no se agrande más allá del 80% */
+  max-height: 80vh; /* Evita que el modal ocupe más del 80% de la altura de la ventana */
+  overflow-y: auto; /* Activa el scroll vertical cuando el contenido exceda el alto del modal */
   animation: scaleIn 0.3s;
 }
 
@@ -652,17 +653,18 @@ footer {
   color: var(--letters);
 }
 
+
 /* Contenido central del modal */
 .modal-body {
   padding: 20px;
   background-color: var(--backgroundGeneral);
   color: #fff;
-  
 }
 
 .modal-body p {
   margin: 0;
   font-size: 16px;
+  line-height: 1.5; /* Mejor legibilidad */
 }
 
 /* Sección de precio y botón de reserva */
@@ -696,6 +698,8 @@ footer {
 .modal-footer .modal-button:hover {
   background-color: #333;
 }
+
+
 
 /* Estilo para el botón de cierre */
 .close {
@@ -852,7 +856,7 @@ form button:hover {
 .pago {
   grid-area: pago;
   grid-column: 5 / span 2;
-  width: 100%;
+  width: 300px;
 }
 
 .border-containers {
@@ -862,21 +866,10 @@ form button:hover {
 }
 
 .balance-f {
-  display: flex;
-  position: relative;
+  position: fixed;
   bottom: 0;
   padding-bottom: 40px;
   width: 100%;
-}
-
-.balance-f p{
-  width: auto;
-  margin-right: auto;
-}
-
-.balance-f button{
-  width: auto;
-  margin-right: auto;
 }
 
 .calendar-container{
@@ -897,136 +890,6 @@ form button:hover {
   object-fit: cover;
   flex-shrink: 0;
 }
-
-.contenedor-pago {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 85%;
-  margin: 50px 0;
-  max-width: 400px;
-}
-
-/* Título del formulario */
-.contenedor-pago h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Estilos de las etiquetas y campos */
-.contenedor-pago label {
-  display: block;
-  margin: 10px 0 5px;
-  font-size: 14px;
-}
-
-.contenedor-pago input, .contenedor-pago select, .contenedor-pago button {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.contenedor-pago input[type="text"], .contenedor-pago input[type="month"] {
-  font-size: 16px;
-}
-
-.contenedor-pago select {
-  font-size: 16px;
-}
-
-.contenedor-datos {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 85%;
-  margin: 50px 0;
-  max-width: 400px;
-}
-
-/* Títulos */
-.contenedor-datos h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-/* Estilo de los labels y inputs */
-.contenedor-datos label {
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: block;
-  color: #333;
-}
-
-.contenedor-datos input[type="text"], .contenedor-datos input[type="email"], .contenedor-datos input[type="tel"], .contenedor-datos select {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-/* Contenedor para el teléfono */
-.contenedor-datos .telefono-container {
-  display: flex;
-  align-items: center;
-}
-
-.contenedor-datos .telefono-container select {
-  width: 25%;
-  margin-right: 10px;
-}
-
-.contenedor-datos .telefono-container input[type="tel"] {
-  width: 70%;
-}
-
-/* Contenedor para el documento */
-.contenedor-datos .tipoDoc-container {
-  display: flex;
-  align-items: center;
-}
-
-.contenedor-datos .tipoDoc-container select {
-  width: 25%;
-  margin-right: 10px;
-}
-
-.contenedor-datos .tipoDoc-container input[type="text"] {
-  width: 70%;
-}
-
-/* Botón de envío */
-.contenedor-datos button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.contenedor-datos button:hover {
-  background-color: #45a049;
-}
-
-/* .contenedor-pago button {
-  background-color: #4CAF50;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-.contenedor-pago button:hover {
-  background-color: #45a049;
-} */
 
 @media (max-width: 1600px){
   .titulo {
