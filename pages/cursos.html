@@ -8,69 +8,432 @@
         <link rel="stylesheet" href="../styles/style.css">
         <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="../scripts/js.js"></script>
-        <script src="../scripts/navbar.js"></script>
-
     </head>
     <body>
         <!-- Header -->
         <header>
-            <div w3-include-html="../pages/navbar.html"></div>
+            <nav id="navbar"></nav>
+            <script src="importarNavbar.js"></script>
         </header>
         <main>
-            <div class="container">
-                <!-- Rectángulos -->
-                <div class="rectangulo" onclick="openModal(1)">
-                    <div class="course-name">Web Developer</div>
-                    <div class="course-content">Contenido del curso 1</div>
-                    <div class="course-price">$100</div>
+            <h1 class="titulo-cursos">Selecciona el curso al que te deseas inscribir</h1>
+            <div class="slider-container">
+
+
+                <div id="course1" class="slide-item" onclick="openModal('modal1')">
+                  <!-- Descuento -->
+                  <div class="discount-section">
+                    <span class="discount">60% OFF</span>
+                  </div>
+            
+                  <!-- Título y Descripción -->
+                  <div class="title-description">
+                    <div class="title">Introduccion a la programacion con Python</div>
+                    <div class="description">Aprende los fundamentos básicos de Python, orientado a principiantes que desean aprender a programar de manera sencilla y eficiente.</div>
+                  </div>
+            
+                  <!-- Precios y Cuotas -->
+                  <div class="pricing">
+                    <div class="price">
+                      <span class="original-price">$80.000,00</span> - $32.000,00
+                    </div>
+                    <div class="installments">Hasta 6 cuotas sin interés de $5.333,33</div>
+                    <div class="duration">Duración: 4 semanas (16 horas)</div>
+                  </div>
+            
+                  <!-- Nivel de Dificultad -->
+                  <div class="footer">
+                    <div class="difficulty">Nivel: FACIL</div>
+                  </div>
                 </div>
-                <div class="rectangulo" onclick="openModal(2)">
-                    <div class="course-name">FullStack Developer</div>
-                    <div class="course-content">Contenido del curso 2</div>
-                    <div class="course-price">$200</div>
-                </div>
-                <div class="rectangulo" onclick="openModal(3)">
-                    <div class="course-name">Python</div>
-                    <div class="course-content">Contenido del curso 3</div>
-                    <div class="course-price">$300</div>
-                </div>
-                <div class="rectangulo" onclick="openModal(4)">
-                    <div class="course-name">Data Analyst</div>
-                    <div class="course-content">Contenido del curso 4</div>
-                    <div class="course-price">$400</div>
-                </div>
-                <div class="rectangulo" onclick="openModal(5)">
-                    <div class="course-name">Java</div>
-                    <div class="course-content">Contenido del curso 5</div>
-                    <div class="course-price">$500</div>
-                </div>
-                <div class="rectangulo" onclick="openModal(6)">
-                    <div class="course-name">JavaScript</div>
-                    <div class="course-content">Contenido del curso 6</div>
-                    <div class="course-price">$600</div>
-                </div>
-                <div class="rectangulo" onclick="openModal(7)">
-                    <div class="course-name">C#</div>
-                    <div class="course-content">Contenido del curso 7</div>
-                    <div class="course-price">$700</div>
-                </div>
-                <div class="rectangulo" onclick="openModal(8)">
-                    <div class="course-name">SQL</div>
-                    <div class="course-content">Contenido del curso 8</div>
-                    <div class="course-price">$800</div>
-                </div>
-            </div>
-    
+
+
+                <div id="course2" class="slide-item" onclick="openModal('modal2')">
+                    <!-- Descuento -->
+                    <div class="discount-section">
+                      <span class="discount">50% OFF</span>
+                    </div>
+              
+                    <!-- Título y Descripción -->
+                    <div class="title-description">
+                      <div class="title">Desarrollo Web</div>
+                      <div class="description">Aprende a crear páginas web interactivas y atractivas usando HTML, CSS y JavaScript. Ideal para quienes desean entrar en el mundo del desarrollo web.</div>
+                    </div>
+              
+                    <!-- Precios y Cuotas -->
+                    <div class="pricing">
+                      <div class="price">
+                        <span class="original-price">$100.000,00</span> - $50.000,00
+                      </div>
+                      <div class="installments">Hasta 6 cuotas sin interés de $16.666,66</div>
+                      <div class="duration">Duración: 8 semanas (32 horas)</div>
+                    </div>
+              
+                    <!-- Nivel de Dificultad -->
+                    <div class="footer">
+                      <div class="difficulty">Nivel: MEDIO</div>
+                    </div>
+                  </div>
+
+
+                  <div id="course3" class="slide-item" onclick="openModal('modal3')">
+                    <!-- Descuento -->
+                    <div class="discount-section">
+                      <span class="discount">25% OFF</span>
+                    </div>
+              
+                    <!-- Título y Descripción -->
+                    <div class="title-description">
+                      <div class="title">Programacion Orientada a Objetos con Java</div>
+                      <div class="description">Aprende los principios de la programación orientada a objetos usando Java, se requiere conocimiento basico de programacion en Java.
+                    </div>
+                    </div>
+              
+                    <!-- Precios y Cuotas -->
+                    <div class="pricing">
+                      <div class="price">
+                        <span class="original-price">$80.000,00</span> - $60.000,00
+                      </div>
+                      <div class="installments">Hasta 6 cuotas sin interés de $10.000,00</div>
+                      <div class="duration">Duración: 8 semanas (32 horas)</div>
+                    </div>
+              
+                    <!-- Nivel de Dificultad -->
+                    <div class="footer">
+                      <div class="difficulty">Nivel: MEDIO</div>
+                    </div>
+                  </div>
+
+
+                  <div id="course4" class="slide-item" onclick="openModal('modal4')">
+                    <!-- Descuento -->
+                    <div class="discount-section">
+                      <span class="discount">35% OFF</span>
+                    </div>
+              
+                    <!-- Título y Descripción -->
+                    <div class="title-description">
+                      <div class="title">Desarrollo de aplicaciones moviles con Flutter</div>
+                      <div class="description">Aprende a crear aplicaciones moviles para android e ios con Flutter y Dart, desde los fundamentos hasta aplicaciones mas avanzadas. </div>
+                    </div>
+              
+                    <!-- Precios y Cuotas -->
+                    <div class="pricing">
+                      <div class="price">
+                        <span class="original-price">$150.000,00</span> - $97.500,00
+                      </div>
+                      <div class="installments">Hasta 6 cuotas sin interés de $16.250,00</div>
+                      <div class="duration">Duración: 12 semanas (48 horas)</div>
+                    </div>
+              
+                    <!-- Nivel de Dificultad -->
+                    <div class="footer">
+                      <div class="difficulty">Nivel: MEDIO</div>
+                    </div>
+                  </div>
+
+
+                  <div id="course5" class="slide-item" onclick="openModal('modal5')">
+                    <!-- Descuento -->
+                    <div class="discount-section">
+                      <span class="discount">20% OFF</span>
+                    </div>
+              
+                    <!-- Título y Descripción -->
+                    <div class="title-description">
+                      <div class="title">Fundamentos de la inteligencia artificial con Python</div>
+                      <div class="description">Aprenderas los principios basicos de la inteligencia artificialutilizando Python y blibliotecas populares como scikit-learn y TensorFlow</div>
+                    </div>
+              
+                    <!-- Precios y Cuotas -->
+                    <div class="pricing">
+                      <div class="price">
+                        <span class="original-price">$140.000,00</span> - $70.000,00
+                      </div>
+                      <div class="installments">Hasta 6 cuotas sin interés de $11.666,66</div>
+                      <div class="duration">Duración: 4 semanas (15 horas)</div>
+                    </div>
+              
+                    <!-- Nivel de Dificultad -->
+                    <div class="footer">
+                      <div class="difficulty">Nivel: DIFICIL</div>
+                    </div>
+                  </div>
+
+
+                  <div id="course6" class="slide-item" onclick="openModal('modal6')">
+                    <!-- Descuento -->
+                    <div class="discount-section">
+                      <span class="discount">30% OFF</span>
+                    </div>
+              
+                    <!-- Título y Descripción -->
+                    <div class="title-description">
+                      <div class="title">Desarrollo Web con Node.js y Express</div>
+                      <div class="description">Aprenderas a crear aplicaciones web con node.js y express, trabajando con bases de datos y servicios web.</div>
+                    </div>
+              
+                    <!-- Precios y Cuotas -->
+                    <div class="pricing">
+                      <div class="price">
+                        <span class="original-price">$140.000,00</span> - $98.000,00
+                      </div>
+                      <div class="installments">Hasta 6 cuotas sin interés de $16.333,33</div>
+                      <div class="duration">Duración: 12 semanas (48 horas)</div>
+                    </div>
+              
+                    <!-- Nivel de Dificultad -->
+                    <div class="footer">
+                      <div class="difficulty">Nivel: MEDIO</div>
+                    </div>
+                  </div>
+
+
+                  <div id="course7" class="slide-item" onclick="openModal('modal7')">
+                    <!-- Descuento -->
+                    <div class="discount-section">
+                      <span class="discount">50% OFF</span>
+                    </div>
+              
+                    <!-- Título y Descripción -->
+                    <div class="title-description">
+                      <div class="title">Bases de datos relacionales con SQL</div>
+                      <div class="description">Aprenderas a diseñar y gestionar bases de datos relaciones con SQL, cubriendo desde consultas simples hasta tecnicas avanzadas.</div>
+                    </div>
+              
+                    <!-- Precios y Cuotas -->
+                    <div class="pricing">
+                      <div class="price">
+                        <span class="original-price">$100.000,00</span> - $50.000,00
+                      </div>
+                      <div class="installments">Hasta 6 cuotas sin interés de $8.333,33</div>
+                      <div class="duration">Duración: 4 semanas (15 horas)</div>
+                    </div>
+              
+                    <!-- Nivel de Dificultad -->
+                    <div class="footer">
+                      <div class="difficulty">Nivel: EXPERTO</div>
+                    </div>
+                  </div>
+
+
+                  <div id="course8" class="slide-item" onclick="openModal('modal8')">
+                    <!-- Descuento -->
+                    <div class="discount-section">
+                      <span class="discount">50% OFF</span>
+                    </div>
+              
+                    <!-- Título y Descripción -->
+                    <div class="title-description">
+                      <div class="title">Java Spring Boot</div>
+                      <div class="description">Domina el framework más popular de Java para el desarrollo backend.</div>
+                    </div>
+              
+                    <!-- Precios y Cuotas -->
+                    <div class="pricing">
+                      <div class="price">
+                        <span class="original-price">$140.000,00</span> - $70.000,00
+                      </div>
+                      <div class="installments">Hasta 6 cuotas sin interés de $11.666,66</div>
+                      <div class="duration">Duración: 4 semanas (15 horas)</div>
+                    </div>
+              
+                    <!-- Nivel de Dificultad -->
+                    <div class="footer">
+                      <div class="difficulty">Nivel: EXPERTO</div>
+                    </div>
+                  </div>
+
+
             <!-- Modal -->
-            <div id="myModal" class="modal">
+            <div id="modal1" class="modal">
                 <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <h2 id="modalTitle">Título</h2>
-                    <p id="modalText">Contenido del modal.</p>
-                    <a href="reservas.html" class="modal-button"><span>Reserva tu cursada</span></a>
+                  
+                    <div class="modal-header">
+                        <h2 id="modalTitle">Título del Cussrso</h2>
+                        <span class="discount">50% OFF</span>
+                        <span class="close" onclick="closeModal()">&times;</span>
+                    </div>
+                
+                    
+                    <div class="modal-body">
+                        <p id="modalText">Contenido del temario del curso.</p>
+                    </div>
+                
+                    
+                    <div class="modal-footer">
+                        <div class="price">
+                        <span class="original-price">$140.000,00</span> $70.000,00
+                        </div>
+                        <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
+                    </div>
                 </div>
             </div>
+
+              <div id="modal2" class="modal">
+                <div class="modal-content">
+                  
+                  <div class="modal-header">
+                    <h2 id="modalTitle">Título del Cussaaaaaaaaarso</h2>
+                    <span class="discount">50% OFF</span>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                  </div>
+            
+                 
+                  <div class="modal-body">
+                    <p id="modalText">Contenido del temario del curso.</p>
+                  </div>
+            
+                  
+                  <div class="modal-footer">
+                    <div class="price">
+                      <span class="original-price">$140.000,00</span> $70.000,00
+                    </div>
+                    <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
+                  </div>
+                </div>
+              </div>
+              <div id="modal3" class="modal">
+                <div class="modal-content">
+                  
+                  <div class="modal-header">
+                    <h2 id="modalTitle">Título del Cussaaaaaaaaarso</h2>
+                    <span class="discount">50% OFF</span>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                  </div>
+            
+                 
+                  <div class="modal-body">
+                    <p id="modalText">Contenido del temario del curso.</p>
+                  </div>
+            
+                  
+                  <div class="modal-footer">
+                    <div class="price">
+                      <span class="original-price">$140.000,00</span> $70.000,00
+                    </div>
+                    <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
+                  </div>
+                </div>
+              </div>
+              <div id="modal4" class="modal">
+                <div class="modal-content">
+                  
+                  <div class="modal-header">
+                    <h2 id="modalTitle">Título del Cussaaaaaaaaarso</h2>
+                    <span class="discount">50% OFF</span>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                  </div>
+            
+                 
+                  <div class="modal-body">
+                    <p id="modalText">Contenido del temario del curso.</p>
+                  </div>
+            
+                  
+                  <div class="modal-footer">
+                    <div class="price">
+                      <span class="original-price">$140.000,00</span> $70.000,00
+                    </div>
+                    <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
+                  </div>
+                </div>
+              </div>
+              <div id="modal5" class="modal">
+                <div class="modal-content">
+                  
+                  <div class="modal-header">
+                    <h2 id="modalTitle">Título del Cussaaaaaaaaarso</h2>
+                    <span class="discount">50% OFF</span>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                  </div>
+            
+                 
+                  <div class="modal-body">
+                    <p id="modalText">Contenido del temario del curso.</p>
+                  </div>
+            
+                  
+                  <div class="modal-footer">
+                    <div class="price">
+                      <span class="original-price">$140.000,00</span> $70.000,00
+                    </div>
+                    <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
+                  </div>
+                </div>
+              </div>
+              <div id="modal6" class="modal">
+                <div class="modal-content">
+                  
+                  <div class="modal-header">
+                    <h2 id="modalTitle">Título del Cussaaaaaaaaarso</h2>
+                    <span class="discount">50% OFF</span>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                  </div>
+            
+                 
+                  <div class="modal-body">
+                    <p id="modalText">Contenido del temario del curso.</p>
+                  </div>
+            
+                  
+                  <div class="modal-footer">
+                    <div class="price">
+                      <span class="original-price">$140.000,00</span> $70.000,00
+                    </div>
+                    <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
+                  </div>
+                </div>
+              </div>
+
+              <div id="modal7" class="modal">
+                <div class="modal-content">
+                  
+                  <div class="modal-header">
+                    <h2 id="modalTitle">Título del Cussaaaaaaaaarso</h2>
+                    <span class="discount">50% OFF</span>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                  </div>
+            
+                 
+                  <div class="modal-body">
+                    <p id="modalText">Contenido del temario del curso.</p>
+                  </div>
+            
+                  
+                  <div class="modal-footer">
+                    <div class="price">
+                      <span class="original-price">$140.000,00</span> $70.000,00
+                    </div>
+                    <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
+                  </div>
+                </div>
+              </div>
+              <div id="modal8" class="modal">
+                <div class="modal-content">
+                  
+                  <div class="modal-header">
+                    <h2 id="modalTitle">Título del Cussaaaaaaaaarso</h2>
+                    <span class="discount">50% OFF</span>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                  </div>
+            
+                 
+                  <div class="modal-body">
+                    <p id="modalText">Contenido del temario del curso.</p>
+                  </div>
+            
+                  
+                  <div class="modal-footer">
+                    <div class="price">
+                      <span class="original-price">$140.000,00</span> $70.000,00
+                    </div>
+                    <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
+                  </div>
+                </div>
+              </div>
         </main>
         <footer>
             <div class="footer-container d-flex">
