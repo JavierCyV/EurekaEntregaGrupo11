@@ -284,7 +284,7 @@ footer {
 }
 
 .boton button {
-  background-color: #00b3ff;
+  background-color: #40D3E2;
   border: none;
   color: black;
   cursor: pointer;
@@ -363,7 +363,7 @@ footer {
   display: block;
   width: 50%; /* Ancho de la línea azul */
   height: 3px;
-  background-color: #00d1b2; /* Color azul */
+  background-color: #40D3E2; /* Color azul */
   position: absolute;
   bottom: -10px; /* Ajusta para que quede más abajo del título */
   left: 0;
@@ -405,7 +405,7 @@ footer {
   border-radius: 8px;
   max-width: 250px;
   color: #eaeaea;
-  border: 2px solid #40d3e2;
+  border: 2px solid #40D3E2;
   text-align: left;
 }
 
@@ -742,7 +742,7 @@ form button:hover {
 }
 
 .boton button {
-  background-color: #00b3ff;
+  background-color: #40D3E2;
   border: none;
   color: black;
   cursor: pointer;
@@ -917,9 +917,9 @@ form button:hover {
 }
 
 .card {
-  background-color: #222222;
+  background-color: #000000;
   color: #ffffff;
-  border: 1px solid #444444;
+  border: 1px solid #ffffff;
   border-radius: 8px;
   padding: 1.5rem;
   min-width: 280px;
@@ -967,7 +967,6 @@ form button:hover {
 .card-footer {
   display: flex;
   justify-content: flex-end;
-  background-color: #222222;
 }
 
 .card-footer-item {
@@ -1021,8 +1020,9 @@ form button:hover {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  border: 1px solid #007bff;
+  border: 1px solid #40D3E2;
   border-radius: 8px;
+  color: white;
 }
 
 .faq-container details {
@@ -1045,7 +1045,7 @@ form button:hover {
   display: flex;
   margin-top: 2rem;
   padding: 1.5rem;
-  background-color: #222222;
+  
   border-radius: 8px;
   text-align: center;
   flex-direction: row;
@@ -1066,7 +1066,7 @@ form button:hover {
 }
 
 .newsletter .button:hover {
-  background-color: #0056b3;
+  background-color: #40D3E2;
 }
 
 
