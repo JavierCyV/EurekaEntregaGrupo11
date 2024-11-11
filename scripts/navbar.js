@@ -1,7 +1,7 @@
 // Función para incluir el navbar desde un archivo HTML
 // navbar.js
 
-function includeHTML() {
+/* function includeHTML() {
     var z, i, elmnt, file, xhttp;
     z = document.querySelectorAll("[w3-include-html]");
     for (i = 0; i < z.length; i++) {
@@ -26,9 +26,9 @@ function includeHTML() {
             xhttp.send();
         }
     }
-}
+} */
 
-function adjustNavbarLinks() {
+/* function adjustNavbarLinks() {
     const currentPage = window.location.pathname.split('/').pop(); // Obtener el nombre del archivo actual
     const navbarItems = document.querySelectorAll('.navbar-item[data-path]');
 
@@ -42,7 +42,7 @@ function adjustNavbarLinks() {
             item.href = path; // Usar la ruta original para otras páginas
         }
     });
-}
+} */
 // Función para el menú hamburguesa
 function setupNavbarMenu() {
     const navbarBurger = document.querySelector('.navbar-burger');
@@ -87,7 +87,10 @@ function setupCartModal() {
     }
 }
 
+setupNavbarMenu(); // Configura el menú hamburguesa
+setupCartModal(); // Configura el modal del carrito
+
 // Llama a la función para cargar el contenido al cargar el DOM
-document.addEventListener('DOMContentLoaded', () => {
+/* document.addEventListener('DOMContentLoaded', () => {
     includeHTML();
-});
+}); */
