@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
     <body>
@@ -30,14 +31,15 @@
                     <a href="#" class="navbar-item" id="cart-button"><i class="fas fa-shopping-cart"></i></a> 
                 </div>
             </nav>
-            
+
             <!-- Modal del carrito -->
             <div id="cart-modal" class="modal-carrito">
                 <div class="modal-background-carrito"></div>
                 <div class="modal-content-carrito">
                     <div class="box">
                         <h2>Carrito de compras</h2>
-                        <p>Tu carrito está vacío.</p>
+                        <p id="cart-empty-text">Tu carrito está vacío.</p>
+                        <div id="cart-items-list"></div> <!-- Lista de productos añadidos -->
                         <button class="modal-close is-large" aria-label="close">Cerrar</button> <!-- Botón para cerrar -->
                     </div>
                 </div>
@@ -53,6 +55,7 @@
                         <div class="swiper-container">
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
+                                    <!-- Repetir estructura de cada turno -->
                                     <div class="swiper-slide">
                                         <div class="card-description">
                                             <div class="card-title">
@@ -64,91 +67,12 @@
                                             </div>
                                             <div class="card-button">
                                                 <form>
-                                                    <input type="submit" id="turno-m-p" name="turno-m-p" value="Seleccionar">
+                                                    <input type="submit" id="turno-m-p" name="turno-m-p" value="Seleccionar" class="select-turno">
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <div class="card-description">
-                                            <div class="card-title">
-                                                <h3>Turno Mañana</h3>
-                                                <h5>Virtual</h5>
-                                            </div>
-                                            <div class="card-text">
-                                                <p>Horarios: 8hs a 12hs</p>
-                                            </div>
-                                            <div class="card-button">
-                                                <form>
-                                                    <input type="submit" id="turno-m-v" name="turno-m-v" value="Seleccionar">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card-description">
-                                            <div class="card-title">
-                                                <h3>Turno Tarde</h3>
-                                                <h5>Presencial</h5>
-                                            </div>
-                                            <div class="card-text">
-                                                <p>Horarios: 13hs a 17hs</p>
-                                            </div>
-                                            <div class="card-button">
-                                                <form>
-                                                    <input type="submit" id="turno-t-p" name="turno-t-p" value="Seleccionar">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card-description">
-                                            <div class="card-title">
-                                                <h3>Turno Mañana</h3>
-                                                <h5>Virtual</h5>
-                                            </div>
-                                            <div class="card-text">
-                                                <p>Horarios: 13hs a 17hs</p>
-                                            </div>
-                                            <div class="card-button">
-                                                <form>
-                                                    <input type="submit" id="turno-t-v" name="turno-t-v" value="Seleccionar">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card-description">
-                                            <div class="card-title">
-                                                <h3>Turno Noche</h3>
-                                                <h5>Presencial</h5>
-                                            </div>
-                                            <div class="card-text">
-                                                <p>Horarios: 18hs a 22hs</p>
-                                            </div>
-                                            <div class="card-button">
-                                                <form>
-                                                    <input type="submit" id="turno-n-p" name="turno-n-p" value="Seleccionar">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card-description">
-                                            <div class="card-title">
-                                                <h3>Turno Noche</h3>
-                                                <h5>Virtual</h5>
-                                            </div>
-                                            <div class="card-text">
-                                                <p>Horarios: 18hs a 22hs</p>
-                                            </div>
-                                            <div class="card-button">
-                                                <form>
-                                                    <input type="submit" id="turno-n-v" name="turno-n-v" value="Seleccionar">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- Añadir los otros turnos en la misma estructura -->
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
@@ -156,74 +80,25 @@
                             </div>
                         </div>
                         <p>2. Seleccione el profesor a cargo</p>
-                        <!-- Swiper -->
+                        <!-- Repetir estructura para profesores -->
                         <div class="swiper-container">
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
+                                    <!-- Repetir estructura de cada profesor -->
                                     <div class="swiper-slide">
                                         <div class="card-description">
                                             <img src="../assets/isaac-newton.jpg" alt="Foto de Isaac Newton" class="foto-profesor">
                                             <div class="card-title">
                                                 <h4>Isaac Newton</h4>
                                             </div>
-                                            <div class="card-text">
-
-                                            </div>
                                             <div class="card-link">
                                                 <form>
-                                                    <input type="submit" id="profesor-3" name="profesor-3" value="Seleccionar">
+                                                    <input type="submit" id="profesor-3" name="profesor-3" value="Seleccionar" class="select-profesor">
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <div class="card-description">
-                                            <img src="../assets/albert_einstein.jpeg" alt="Foto de Alberto Einstein" class="foto-profesor">
-                                            <div class="card-title">
-                                                <h4>Alberto Einstein</h4>
-                                            </div>
-                                            <div class="card-text">
-
-                                            </div>
-                                            <div class="card-link">
-                                                <form>
-                                                    <input type="submit" id="profesor-4" name="profesor-4" value="Seleccionar">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card-description">
-                                            <img src="../assets/nicola_tesla.jpeg" alt="Foto de Nicolas Tesla" class="foto-profesor">
-                                            <div class="card-title">
-                                                <h4>Nicolas Tesla</h4>
-                                            </div>
-                                            <div class="card-text">
-
-                                            </div>
-                                            <div class="card-link">
-                                                <form>
-                                                    <input type="submit" id="profesor-2" name="profesor-2" value="Seleccionar">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card-description">
-                                            <img src="../assets/steven_hawkings.jpeg" alt="Foto de Esteban Hawkings" class="foto-profesor">
-                                            <div class="card-title">
-                                                <h4>Esteban Hawkings</h4>
-                                            </div>
-                                            <div class="card-text">
-
-                                            </div>
-                                            <div class="card-link">
-                                                <form>
-                                                    <input type="submit" id="profesor-1" name="profesor-1" value="Seleccionar">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- Añadir los otros profesores en la misma estructura -->
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
@@ -237,16 +112,15 @@
                                 <input type="submit">
                             </form>
                         </div>
-                        <!-- <p>4. Seleccione metodo de pago</p> -->
                     </div>
                     <div class="pago">
                         <h1>Pago</h1>
                         <p>Detalle de compra</p>
-                        <input type="text"> <span>hola</span>
                         <div class="balance-f">
-                            <p>Total: $$$</p>
+                            <p>Total: $0</p> <!-- Esto se actualizará dinámicamente -->
                         </div>
-                    </div>
+                        <button id="send-to-cart">Enviar al carrito</button> <!-- Botón para finalizar la selección -->
+                    </div>                    
                 </div>
             </div>
         </main>
@@ -255,5 +129,7 @@
         <script src="../scripts/swiper.js"></script>
         <script src="../scripts/navbar.js"></script>
         <script src="../scripts/carrito.js"></script>
+        <script src="../scripts/reservas.js"></script>
+
     </body>
 </html>
