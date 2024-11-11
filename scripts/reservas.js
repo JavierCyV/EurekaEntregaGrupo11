@@ -21,3 +21,13 @@ document.getElementById('formularioDeFacturacion').addEventListener('submit', fu
     event.preventDefault();
     alert("Formulario enviado correctamente");
 });
+
+function hacerReserva (nombre, precio, descuento){
+    const nombre = nombre;
+    const precio = precio;
+    const descuento = descuento;
+
+    var precioTotal = precio * descuento;
+
+    return precioTotal
+}
