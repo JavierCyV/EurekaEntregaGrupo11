@@ -97,7 +97,9 @@ a.navbar-item.is-active {
         position: absolute; /* Posición absoluta */
         top: 80px; /* Debajo del navbar */
         left: 0; /* Alineado a la izquierda */
-        width: calc(100% - 10%); /* Ancho completo menos el padding */
+        width: 100%;
+        gap: 20px;
+        padding: 20px;
         background-color: var(--backgroundGeneral); /* Color de fondo */
         z-index: 10; /* Asegurarse de que esté encima de otros elementos */
     }
@@ -459,7 +461,9 @@ footer {
 /* Cursos */
 
 .titulo-cursos {
-  margin-left: 10%;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
 }
 
 .slider-container {
@@ -983,7 +987,7 @@ form button:hover {
 }
 
 .form-section {
-    width: auto; /* Permite que la sección del formulario se ajuste automáticamente */
+    width: 70%;
     max-width: none; /* Elimina el ancho máximo para pantallas pequeñas */
     margin-top:20px; /* Añade un margen superior para separación */
 }
