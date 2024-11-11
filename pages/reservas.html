@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
     <body>
@@ -240,13 +241,115 @@
                         <!-- <p>4. Seleccione metodo de pago</p> -->
                     </div>
                     <div class="pago">
-                        <h1>Pago</h1>
-                        <p>Detalle de compra</p>
-                        <input type="text"> <span>hola</span>
-                        <div class="balance-f">
-                            <p>Total: $$$</p>
+                        <h1>Formulario de Pago</h1>
+                        <div class="contenedor-pago">
+                            <form id="formularioDePago">
+                                <!-- Numero de tarjeta -->
+                                <label for="cardNumber">Número de tarjeta:</label>
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="Ingrese el número de tarjeta" required>
+                                
+                                <!-- Nombre del titular -->
+                                <label for="cardHolder">Nombre del titular:</label>
+                                <input type="text" id="cardHolder" name="cardHolder" placeholder="Ingrese el nombre del titular" required>
+                    
+                                <!-- Fecha de vencimiento -->
+                                <label for="expiryDate">Fecha de vencimiento:</label>
+                                <input type="month" id="expiryDate" name="expiryDate" required>
+                    
+                                <!-- Codigo de seguridad -->
+                                <label for="securityCode">Código de seguridad:</label>
+                                <input type="text" id="securityCode" name="securityCode" placeholder="Ingrese el código de seguridad" required>
+                    
+                                <!-- Selección de cuotas -->
+                                <label for="installments">Selecciona las cuotas:</label>
+                                <select id="installments" name="installments" required>
+                                    <option value="1">1 cuota</option>
+                                    <option value="3">3 cuotas</option>
+                                    <option value="6">6 cuotas</option>
+                                    <option value="12">12 cuotas</option>
+                                </select>
+                            </form>
                         </div>
-                    </div>
+                        <h1>Datos de Facturación y Usuario</h1>
+                        <div class="contenedor-datos">
+                            <form id="formularioDeFacturacion">
+                                <!-- Nombre y Apellido -->
+                                <label for="nombre">Nombre y Apellido:</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre y apellido" required>
+                    
+                                <!-- Email -->
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" placeholder="Ingresa tu email" required>
+                    
+                                <!-- Confirmar email -->
+                                <label for="confirmEmail">Confirmar Email:</label>
+                                <input type="email" id="confirmEmail" name="confirmEmail" placeholder="Confirma tu email" required>
+                    
+                                <!-- Teléfono -->
+                                <label for="telefono">Teléfono:</label>
+                                <div class="telefono-container">
+                                    <select id="codigoArea" name="codigoArea">
+                                        <option value="+54">+54 (Argentina)</option>
+                                        <option value="+1">+1 (EE. UU.)</option>
+                                        <option value="+34">+34 (España)</option>
+                                        <!-- Puedes agregar más códigos de área si lo deseas -->
+                                    </select>
+                                    <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu número" required>
+                                </div>
+                    
+                                <!-- Número de Documento -->
+                                <label for="tipoDoc">Tipo de Documento:</label>
+                                <div class="tipoDoc-container">
+                                    <select id="tipoDoc" name="tipoDoc">
+                                        <option value="DNI">DNI</option>
+                                        <option value="Pasaporte">Pasaporte</option>
+                                    </select>
+                                    <input type="text" id="numeroDoc" name="numeroDoc" placeholder="Número de documento" required>
+                                </div>
+                    
+                                <!-- Provincia -->
+                                <label for="provincia">Provincia:</label>
+                                <select id="provincia" name="provincia">
+                                    <option value="Buenos Aires">Buenos Aires</option>
+                                    <option value="CABA">Ciudad Autónoma de Buenos Aires</option>
+                                    <option value="Catamarca">Catamarca</option>
+                                    <option value="Chaco">Chaco</option>
+                                    <option value="Chubut">Chubut</option>
+                                    <option value="Córdoba">Córdoba</option>
+                                    <option value="Corrientes">Corrientes</option>
+                                    <option value="Entre Ríos">Entre Ríos</option>
+                                    <option value="Formosa">Formosa</option>
+                                    <option value="Jujuy">Jujuy</option>
+                                    <option value="La Pampa">La Pampa</option>
+                                    <option value="La Rioja">La Rioja</option>
+                                    <option value="Mendoza">Mendoza</option>
+                                    <option value="Misiones">Misiones</option>
+                                    <option value="Neuquén">Neuquén</option>
+                                    <option value="Río Negro">Río Negro</option>
+                                    <option value="Salta">Salta</option>
+                                    <option value="San Juan">San Juan</option>
+                                    <option value="San Luis">San Luis</option>
+                                    <option value="Santa Cruz">Santa Cruz</option>
+                                    <option value="Santa Fe">Santa Fe</option>
+                                    <option value="Santiago del Estero">Santiago del Estero</option>
+                                    <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                    <option value="Tucumán">Tucumán</option>
+                                </select>
+                    
+                                <!-- Condición Fiscal -->
+                                <label for="condicionFiscal">Condición Fiscal:</label>
+                                <select id="condicionFiscal" name="condicionFiscal">
+                                    <option value="Consumidor Final">Consumidor Final</option>
+                                    <option value="Monotributista">Monotributista</option>
+                                    <option value="Responsable Inscripto">Responsable Inscripto</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div class="balance-f">
+                            <p>Total: $0</p> <!-- Esto se actualizará dinámicamente -->
+                            <button id="send-to-cart">Enviar al carrito</button> <!-- Botón para finalizar la selección -->
+                        </div>
+                    </div>   
                 </div>
             </div>
         </main>
@@ -255,5 +358,6 @@
         <script src="../scripts/swiper.js"></script>
         <script src="../scripts/navbar.js"></script>
         <script src="../scripts/carrito.js"></script>
+        <script src="../scripts/reservas.js"></script>
     </body>
 </html>
