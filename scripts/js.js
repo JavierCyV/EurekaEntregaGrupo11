@@ -14,10 +14,12 @@ function closeModal(modalId) {
 
 // Cerrar el modal si se hace clic fuera de él
 window.onclick = function(event) {
-    const modal = document.getElementById("modal1");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
+    for (let i = 1; i <= 8; i++) {
+        const modal = document.getElementById("modal" + i);
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
 };
 
 /* // navbar.js
