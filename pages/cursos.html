@@ -4,18 +4,45 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Grupo 11 - Eureka</title>
-        <link rel="icon" href="assets/logo (2).jfif">
+        <link rel="icon" href="../assets/logo (2).jfif">
         <link rel="stylesheet" href="../styles/style.css">
-        <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <script src="../scripts/js.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
     </head>
     <body>
         <!-- Header -->
         <header>
-            <nav id="navbar"></nav>
-            <script src="importarNavbar.js"></script>
+          <nav id="navbar" class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="../index.html">
+                    <img src="../assets/logo (2).jfif" alt="Eureka">
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbar-menu" class="navbar-menu">
+                <a href="cursos.html" class="navbar-item">Cursos</a>
+                <a href="comunidad.html" class="navbar-item">Comunidad</a>
+                <a href="contacto.html" class="navbar-item">Contacto</a>
+                <a href="#" class="navbar-item" id="cart-button"><i class="fas fa-shopping-cart"></i></a> 
+            </div>
+          </nav>
+
+          <!-- Modal del carrito -->
+          <div id="cart-modal" class="modal-carrito">
+              <div class="modal-background-carrito"></div>
+              <div class="modal-content-carrito">
+                  <div class="box">
+                      <h2>Carrito de compras</h2>
+                      <p>Tu carrito está vacío.</p>
+                      <button class="modal-close is-large" aria-label="close">Cerrar</button> <!-- Botón para cerrar -->
+                  </div>
+              </div>
+          </div>
         </header>
         <main>
             <h1 class="titulo-cursos">Selecciona el curso al que te deseas inscribir</h1>
@@ -452,6 +479,9 @@
                 </div>
             </div>
         </footer>
+        <!-- Scripts -->
         <script src="../scripts/js.js"></script>
+        <script src="../scripts/navbar.js"></script>
+        <script src="../scripts/carrito.js"></script>
     </body>
 </html>

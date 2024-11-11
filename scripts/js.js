@@ -20,7 +20,7 @@ window.onclick = function(event) {
     }
 };
 
-// navbar.js
+/* // navbar.js
 function loadNavbar() {
     fetch('navbar.html')
         .then(response => {
@@ -37,5 +37,5 @@ function loadNavbar() {
         });
 }
 //llamado a la funcion (no lo borren)
-loadNavbar();
+loadNavbar(); */
 
