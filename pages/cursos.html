@@ -309,7 +309,7 @@
                       <div class="price">
                       <span class="original-price">$80.000,00</span> $32.000,00
                       </div>
-                      <a href="reservas.html" class="modal-button" onclick="hacerReserva('Introducción a la Programación en Python', 800000, 0.6)">Reserva tu cursada</a>
+                      <a href="reservas.html" class="modal-button" data-precio="32000" onclick="guardarPrecio(event)">Reserva tu cursada</a>
                   </div>
               </div>
           </div>
@@ -350,8 +350,9 @@
                   <div class="price">
                     <span class="original-price">$100.000,00</span> $50.000,00
                   </div>
-                  <a href="reservas.html" class="modal-button" onclick="hacerReserva('Desarrollo Web', 100000, 0.5)">Reserva tu cursada</a>
-                </div>
+                  <a href="reservas.html" class="modal-button" data-precio="50000" onclick="guardarPrecio(event)">Reserva tu cursada</a>
+
+                                </div>
               </div>
           </div>
 
@@ -392,8 +393,9 @@
                   <div class="price">
                     <span class="original-price">$80.000,00</span> $60.000,00
                   </div>
-                  <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
-                </div>
+                  <a href="reservas.html" class="modal-button" data-precio="60000" onclick="guardarPrecio(event)">Reserva tu cursada</a>
+
+                                </div>
               </div>
           </div>
 
@@ -438,8 +440,9 @@
                   <div class="price">
                     <span class="original-price">$150.000,00</span> $97.500,00
                   </div>
-                  <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
-                </div>
+                  <a href="reservas.html" class="modal-button" data-precio="97500" onclick="guardarPrecio(event)">Reserva tu cursada</a>
+
+                                </div>
               </div>
           </div>
 
@@ -483,8 +486,9 @@
                   <div class="price">
                     <span class="original-price">$140.000,00</span> $70.000,00
                   </div>
-                  <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
-                </div>
+                  <a href="reservas.html" class="modal-button" data-precio="70000" onclick="guardarPrecio(event)">Reserva tu cursada</a>
+
+                                </div>
               </div>
           </div>
 
@@ -530,8 +534,9 @@
                   <div class="price">
                     <span class="original-price">$140.000,00</span> $98.000,00
                   </div>
-                  <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
-                </div>
+                  <a href="reservas.html" class="modal-button" data-precio="98000" onclick="guardarPrecio(event)">Reserva tu cursada</a>
+
+                                </div>
               </div>
           </div>
 
@@ -570,8 +575,9 @@
                   <div class="price">
                     <span class="original-price">$100.000,00</span> $50.000,00
                   </div>
-                  <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
-                </div>
+                  <a href="reservas.html" class="modal-button" data-precio="50000" onclick="guardarPrecio(event)">Reserva tu cursada</a>
+
+                  </div>
               </div>
           </div>
 
@@ -620,7 +626,9 @@
                   <div class="price">
                     <span class="original-price">$180.000,00</span> $90.000,00
                   </div>
-                  <a href="reservas.html" class="modal-button">Reserva tu cursada</a>
+                  <a href="reservas.html" class="modal-button" data-precio="90000" onclick="guardarPrecio(event)">Reserva tu cursada</a>
+
+                
                 </div>
               </div>
           </div>
@@ -647,5 +655,6 @@
         <script src="../scripts/navbar.js"></script>
         <script src="../scripts/carrito.js"></script>
         <script src="../scripts/reservas.js"></script>
+        <script src="../scripts/cursos.js"></script>
     </body>
 </html>
