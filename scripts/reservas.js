@@ -1,40 +1,6 @@
-document.getElementById('formularioDePago').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const cardNumber = document.getElementById('cardNumber').value;
-    const cardHolder = document.getElementById('cardHolder').value;
-    const expiryDate = document.getElementById('expiryDate').value;
-    const securityCode = document.getElementById('securityCode').value;
-    const installments = document.getElementById('installments').value;
-
-    // Mostrar los datos del formulario
-    console.log("Número de tarjeta:", cardNumber);
-    console.log("Nombre del titular:", cardHolder);
-    console.log("Fecha de vencimiento:", expiryDate);
-    console.log("Código de seguridad:", securityCode);
-    console.log("Cuotas seleccionadas:", installments);
-
-    alert("Formulario enviado correctamente!");
-});
-
-document.getElementById('formularioDeFacturacion').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert("Formulario enviado correctamente");
-});
-
-function hacerReserva (nombre, precio, descuento){
-    const nombre = nombre;
-    const precio = precio;
-    const descuento = descuento;
-
-    var precioTotal = precio * descuento;
-
-    return precioTotal
-}
-
-
 document.addEventListener("DOMContentLoaded", function() {
     // Cargar el precio desde sessionStorage
+    let nombreCurso = parseFloat(sessionStorage.getItem("cursoNombre"));
     let precioCurso = parseFloat(sessionStorage.getItem("cursoPrecio"));
 
     if (isNaN(precioCurso)) {
@@ -42,6 +8,15 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("total-precio").textContent = "0";
         return; // Salir si no hay precio válido
     }
+
+    if (isNaN(nombreCurso)) {
+        console.error("No se encontró el nombre del curso en sessionStorage.");
+        document.getElementById("titulo-nombre-curso").textContent = "Curso: ";
+        return; // Salir si no hay nombre válido
+    }
+
+    // Mostrar el nombre en el subtitulo
+    document.getElementById("titulo-nombre-curso").textContent = nombreCurso.toFixed(2);
 
     // Mostrar el precio inicial en el total
     document.getElementById("total-precio").textContent = precioCurso.toFixed(2);
