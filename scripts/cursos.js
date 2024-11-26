@@ -1,4 +1,4 @@
-// Función para reservar un curso y guardar la información en sessionStorage
+/* // Función para reservar un curso y guardar la información en sessionStorage
 function reservarCurso(nombre, precio) {
     sessionStorage.setItem("cursoNombre", nombre);
     sessionStorage.setItem("cursoPrecio", precio);
@@ -14,16 +14,18 @@ document.querySelectorAll('.modal-button').forEach(button => {
         reservarCurso(nombre, precio);
     });
 });
-
-// Función para guardar solo el precio en sessionStorage y redirigir
+ */
+// Función para guardar el nombre y el precio en sessionStorage y redirigir
 function guardarPrecio(event) {
     event.preventDefault(); // Evita la navegación inmediata
+    const nombre = event.target.getAttribute("data-nombre"); // Obtiene el nombre del atributo data-precio
     const precio = event.target.getAttribute("data-precio"); // Obtiene el precio del atributo data-precio
 
-    if (precio) {
+    if (nombre && precio) {
+        sessionStorage.setItem("cursoNombre", nombre); // Guarda el nombre en sessionStorage
         sessionStorage.setItem("cursoPrecio", precio); // Guarda el precio en sessionStorage
         window.location.href = "reservas.html"; // Redirige a la página de reservas
     } else {
-        console.error("No se encontró el precio en el botón.");
+        console.error("No se encontraron los datos en el botón.");
     }
 }

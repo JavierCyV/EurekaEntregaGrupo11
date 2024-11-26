@@ -12,14 +12,15 @@ function updateCartDisplay() {
     if (cartItems.length === 0) {
         cartModalContent.innerHTML = '<h2>Carrito de compras</h2><p>Tu carrito está vacío.</p>';
     } else {
-        const itemList = document.createElement('ul'); // Crear lista para los artículos
+        const itemsList = document.createElement('ul'); // Crear lista para los artículos
         cartItems.forEach(item => {
             const listItem = document.createElement('li');
             listItem.textContent = `${item.name} - $${item.price}`; // Mostrar nombre y precio
-            itemList.appendChild(listItem);
+            itemsList.appendChild(listItem);
         });
         cartModalContent.innerHTML = '<h2>Carrito de compras</h2>'; // Título
-        cartModalContent.appendChild(itemList); // Agregar lista al contenido del modal
+        cartModalContent.appendChild(itemsList); // Agregar lista al contenido del modal
+        cartModalContent.append('<a class="btn-pagar" href="./pages/pago.html" > Pagar </a>');
     }
 }
 

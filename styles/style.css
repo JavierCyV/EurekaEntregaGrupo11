@@ -836,26 +836,21 @@ form button:hover {
   color: var(--backgroundGeneral);
 }
 
-.grid-container {
-  display: grid;
-  background-color: var(--backgroundSecundario);
-  grid-template-areas:
-    'reserva reserva reserva reserva pago pago'
-    'reserva reserva reserva reserva pago pago'
-    'reserva reserva reserva reserva pago pago';
-  min-height: 100%;
-}
-
 .reserva {
-  grid-area: reserva;
-  grid-column: 1 / span 4;
-  margin-right: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
   margin-bottom: 40px;
 }
 
 .pago {
-  grid-area: pago;
-  grid-column: 5 / span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -905,6 +900,28 @@ form button:hover {
   width: 85%;
   margin: 50px 0;
   max-width: 400px;
+}
+
+.botones-reserva{
+  display: flex;
+  height: auto;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.btn-reservar {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease;
+  text-decoration: none;
 }
 
 /* Título del formulario */
