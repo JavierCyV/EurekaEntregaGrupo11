@@ -11,7 +11,7 @@ const cursos = [
       nivel: "FACIL"
     },
     {
-        id: "course1",
+        id: "course2",
         nombre: "Introducción a la Programación en Python",
         descripcion: "Aprende los fundamentos básicos de Python...",
         descuento: "60% OFF",
@@ -22,7 +22,7 @@ const cursos = [
         nivel: "FACIL"
       },
       {
-        id: "course1",
+        id: "course3",
         nombre: "Introducción a la Programación en Python",
         descripcion: "Aprende los fundamentos básicos de Python...",
         descuento: "60% OFF",
@@ -33,7 +33,7 @@ const cursos = [
         nivel: "FACIL"
       },
       {
-        id: "course1",
+        id: "course4",
         nombre: "Introducción a la Programación en Python",
         descripcion: "Aprende los fundamentos básicos de Python...",
         descuento: "60% OFF",
