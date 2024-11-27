@@ -1,31 +1,93 @@
-/* // Función para reservar un curso y guardar la información en sessionStorage
-function reservarCurso(nombre, precio) {
-    sessionStorage.setItem("cursoNombre", nombre);
-    sessionStorage.setItem("cursoPrecio", precio);
-    window.location.href = "reservas.html"; // Redirige a la página de reservas
-}
+const cursos = [
+    {
+      id: "course1",
+      nombre: "Introducción a la Programación en Python",
+      descripcion: "Aprende los fundamentos básicos de Python...",
+      descuento: "60% OFF",
+      precioOriginal: "$80.000,00",
+      precioFinal: "$32.000,00",
+      cuotas: "6 cuotas de $5.333,33",
+      duracion: "4 semanas (16 horas)",
+      nivel: "FACIL"
+    },
+    {
+        id: "course1",
+        nombre: "Introducción a la Programación en Python",
+        descripcion: "Aprende los fundamentos básicos de Python...",
+        descuento: "60% OFF",
+        precioOriginal: "$80.000,00",
+        precioFinal: "$32.000,00",
+        cuotas: "6 cuotas de $5.333,33",
+        duracion: "4 semanas (16 horas)",
+        nivel: "FACIL"
+      },
+      {
+        id: "course1",
+        nombre: "Introducción a la Programación en Python",
+        descripcion: "Aprende los fundamentos básicos de Python...",
+        descuento: "60% OFF",
+        precioOriginal: "$80.000,00",
+        precioFinal: "$32.000,00",
+        cuotas: "6 cuotas de $5.333,33",
+        duracion: "4 semanas (16 horas)",
+        nivel: "FACIL"
+      },
+      {
+        id: "course1",
+        nombre: "Introducción a la Programación en Python",
+        descripcion: "Aprende los fundamentos básicos de Python...",
+        descuento: "60% OFF",
+        precioOriginal: "$80.000,00",
+        precioFinal: "$32.000,00",
+        cuotas: "6 cuotas de $5.333,33",
+        duracion: "4 semanas (16 horas)",
+        nivel: "FACIL"
+      },
+  ];
+  
+  const sliderContainer = document.querySelector('.slider-container');
+  cursos.forEach(curso => {
+    const courseDiv = document.createElement('div');
+    courseDiv.classList.add('slide-item');
+    courseDiv.id = curso.id;
+    courseDiv.setAttribute('onclick', `openModal('${curso.id}')`);
+    courseDiv.innerHTML = `
+      <div class="discount-section"><span class="discount">${curso.descuento}</span></div>
+      <div class="title-description">
+        <div class="title">${curso.nombre}</div>
+        <div class="description">${curso.descripcion}</div>
+      </div>
+      <div class="pricing">
+        <div class="price">
+          <span class="original-price">${curso.precioOriginal}</span> - ${curso.precioFinal}
+        </div>
+        <div class="installments">${curso.cuotas}</div>
+        <div class="duration">${curso.duracion}</div>
+      </div>
+      <div class="footer">
+        <div class="difficulty">Nivel: ${curso.nivel}</div>
+      </div>`;
+    sliderContainer.appendChild(courseDiv);
+  });
+  
 
-// Ejemplo de uso en un botón de reserva
-document.querySelectorAll('.modal-button').forEach(button => {
-    button.addEventListener('click', function(event) {
-        event.preventDefault();
-        const nombre = this.getAttribute("data-nombre");
-        const precio = this.getAttribute("data-precio");
-        reservarCurso(nombre, precio);
-    });
-});
- */
-// Función para guardar el nombre y el precio en sessionStorage y redirigir
-function guardarPrecio(event) {
-    event.preventDefault(); // Evita la navegación inmediata
-    const nombre = event.target.getAttribute("data-nombre"); // Obtiene el nombre del atributo data-precio
-    const precio = event.target.getAttribute("data-precio"); // Obtiene el precio del atributo data-precio
 
-    if (nombre && precio) {
-        sessionStorage.setItem("cursoNombre", nombre); // Guarda el nombre en sessionStorage
-        sessionStorage.setItem("cursoPrecio", precio); // Guarda el precio en sessionStorage
-        window.location.href = "reservas.html"; // Redirige a la página de reservas
-    } else {
-        console.error("No se encontraron los datos en el botón.");
+  function openModal(courseId) {
+    const courseData = cursos.find(curso => curso.id === courseId);
+    if (courseData) {
+      document.querySelector('.modal-title').textContent = courseData.nombre;
+      document.querySelector('.discount').textContent = courseData.descuento;
+      document.querySelector('.modal-description').textContent = courseData.descripcion;
+      document.querySelector('.original-price').textContent = courseData.precioOriginal;
+      document.querySelector('.final-price').textContent = courseData.precioFinal;
+      document.querySelector('.modal-button').textContent = `Reserva tu cursada`;
+      const modal = document.getElementById('modalTemplate');
+      modal.classList.add('is-active'); // Mostramos el modal
     }
-}
+  }
+  
+  function closeModal() {
+    const modal = document.getElementById('modalTemplate');
+    modal.classList.remove('is-active'); // Ocultamos el modal
+  }
+  
