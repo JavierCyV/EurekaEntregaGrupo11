@@ -1,3 +1,14 @@
+window.onload= function() {
+
+    const date = new Date()
+    const currentYear = date.getFullYear();
+    const currentMonth = date.getMonth() + 1;
+    const currentDay = date.getDate();
+    const currentDate = currentYear + "-" + currentMonth + "-" + currentDay;
+    
+    document.querySelector('#fecha-curso').setAttribute("min", currentDate); // Setea la fecha de hoy como valor minimo para seleccionar fecha
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     // Variables globales para guardar las selecciones
     let cursoNombre = sessionStorage.getItem("cursoNombre");
@@ -34,10 +45,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Seleccionar profesor
-    document.querySelectorAll(".card-link input[type='submit']").forEach(button => {
+    document.querySelectorAll("button").forEach(button => {
         button.addEventListener("click", function (event) {
             event.preventDefault();
-            profesorSeleccionado = this.parentElement.parentElement.querySelector("h4").textContent;
+            profesorSeleccionado = this.id;
+            if (profesorSeleccionado.includes("profesor")) {
+                profesorSeleccionado = this.parentElement.parentElement.querySelector("h4").textContent;
+            }
         });
     });
 
