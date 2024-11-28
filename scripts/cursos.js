@@ -104,8 +104,9 @@ const cursos = [
 
   function redirectToReserva() {
     const finalPrice = document.querySelector(".final-price").textContent;
+    const nombreCurso = document.querySelector('.modal-title').textContent;
   
-    window.location.href = `reservas.html?precioFinal=${encodeURIComponent(finalPrice)}`;
+    window.location.href = `reservas.html?precioFinal=${encodeURIComponent(finalPrice)}+?nombreCurso=${encodeURIComponent(nombreCurso)}`;
   }
   
   

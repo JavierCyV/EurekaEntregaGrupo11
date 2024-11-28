@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let profesorSeleccionado = null;
     let fechaSeleccionada = null;
 
-    if (!cursoNombre || isNaN(precioCurso)) {
+    if (isNaN(cursoNombre) || isNaN(precioCurso)) {
         console.error("No se encontraron los datos del curso en sessionStorage.");
         document.getElementById("total-precio").textContent = "0";
         return; // Salir si no hay datos válidos
