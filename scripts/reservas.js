@@ -1,43 +1,72 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Cargar el precio desde sessionStorage
-    let nombreCurso = parseFloat(sessionStorage.getItem("cursoNombre"));
+document.addEventListener("DOMContentLoaded", function () {
+    // Variables globales para guardar las selecciones
+    let cursoNombre = sessionStorage.getItem("cursoNombre");
     let precioCurso = parseFloat(sessionStorage.getItem("cursoPrecio"));
+    let turnoSeleccionado = null;
+    let profesorSeleccionado = null;
+    let fechaSeleccionada = null;
 
-    if (isNaN(precioCurso)) {
-        console.error("No se encontró el precio del curso en sessionStorage.");
+    if (!cursoNombre || isNaN(precioCurso)) {
+        console.error("No se encontraron los datos del curso en sessionStorage.");
         document.getElementById("total-precio").textContent = "0";
-        return; // Salir si no hay precio válido
+        return; // Salir si no hay datos válidos
     }
 
-    if (isNaN(nombreCurso)) {
-        console.error("No se encontró el nombre del curso en sessionStorage.");
-        document.getElementById("titulo-nombre-curso").textContent = "Curso: ";
-        return; // Salir si no hay nombre válido
-    }
-
-    // Mostrar el nombre en el subtitulo
-    document.getElementById("titulo-nombre-curso").textContent = nombreCurso.toFixed(2);
-
-    // Mostrar el precio inicial en el total
+    // Mostrar el nombre y el precio del curso
+    document.getElementById("titulo-nombre-curso").textContent = cursoNombre;
     document.getElementById("total-precio").textContent = precioCurso.toFixed(2);
 
-    // Agregar recargo/descuento según el turno seleccionado
-    document.querySelectorAll("input[type='submit']").forEach(button => {
-        button.addEventListener("click", function(event) {
+    // Seleccionar turno
+    document.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", function (event) {
             event.preventDefault();
-            let turno = this.id;
+            turnoSeleccionado = this.id;
+
+            // Ajustar precio según turno
             let precioFinal = precioCurso;
-
-            if (turno.includes("turno-m")) {
-                // Turno mañana: recargo del 5%
-                precioFinal *= 1.05;
-            } else if (turno.includes("turno-n")) {
-                // Turno noche: descuento del 5%
-                precioFinal *= 0.95;
+            if (turnoSeleccionado.includes("turno-m")) {
+                precioFinal *= 1.05; // Recargo del 5% para turno mañana
+            } else if (turnoSeleccionado.includes("turno-n")) {
+                precioFinal *= 0.95; // Descuento del 5% para turno noche
             }
-
-            // Mostrar el precio ajustado en el campo "Total"
             document.getElementById("total-precio").textContent = precioFinal.toFixed(2);
         });
     });
+
+    // Seleccionar profesor
+    document.querySelectorAll(".card-link input[type='submit']").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            profesorSeleccionado = this.parentElement.parentElement.querySelector("h4").textContent;
+        });
+    });
+
+    // Seleccionar fecha
+    document.getElementById("fecha-curso").addEventListener("change", function () {
+        fechaSeleccionada = this.value;
+    });
+
+    // Agregar datos al carrito
+    document.querySelectorAll(".btn-reservar").forEach(button => {
+        button.addEventListener("click", function (event) {
+            if (!turnoSeleccionado || !profesorSeleccionado || !fechaSeleccionada) {
+                alert("Por favor, completa todas las selecciones antes de continuar.");
+                event.preventDefault();
+                return;
+            }
+
+            // Crear objeto del carrito
+            const carritoItem = {
+                curso: cursoNombre,
+                precio: document.getElementById("total-precio").textContent,
+                turno: turnoSeleccionado,
+                profesor: profesorSeleccionado,
+                fecha: fechaSeleccionada,
+            };
+
+            // Guardar en sessionStorage
+            sessionStorage.setItem("carrito", JSON.stringify(carritoItem));
+        });
+    });
 });
+

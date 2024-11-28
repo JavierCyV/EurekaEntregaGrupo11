@@ -1,48 +1,59 @@
 const cursos = [
     {
       id: "course1",
-      nombre: "Introducción a la Programación en Python",
-      descripcion: "Aprende los fundamentos básicos de Python...",
-      descuento: "60% OFF",
-      precioOriginal: "$80.000,00",
-      precioFinal: "$32.000,00",
-      cuotas: "6 cuotas de $5.333,33",
-      duracion: "4 semanas (16 horas)",
-      nivel: "FACIL"
+      nombre: "Desarrollo Web Full Stack con JavaScript",
+      descripcion: "Domina el desarrollo web full stack aprendiendo JavaScript desde el front-end con React hasta el back-end con Node.js y Express.",
+      descuento: "50% OFF",
+      precioOriginal: "$100.000,00",
+      precioFinal: "$50.000,00",
+      cuotas: "6 cuotas de $8.333,33",
+      duracion: "12 semanas (48 horas)",
+      nivel: "MEDIO"
     },
     {
-        id: "course2",
-        nombre: "Introducción a la Programación en Python",
-        descripcion: "Aprende los fundamentos básicos de Python...",
-        descuento: "60% OFF",
-        precioOriginal: "$80.000,00",
-        precioFinal: "$32.000,00",
-        cuotas: "6 cuotas de $5.333,33",
-        duracion: "4 semanas (16 horas)",
-        nivel: "FACIL"
-      },
-      {
-        id: "course3",
-        nombre: "Introducción a la Programación en Python",
-        descripcion: "Aprende los fundamentos básicos de Python...",
-        descuento: "60% OFF",
-        precioOriginal: "$80.000,00",
-        precioFinal: "$32.000,00",
-        cuotas: "6 cuotas de $5.333,33",
-        duracion: "4 semanas (16 horas)",
-        nivel: "FACIL"
-      },
-      {
-        id: "course4",
-        nombre: "Introducción a la Programación en Python",
-        descripcion: "Aprende los fundamentos básicos de Python...",
-        descuento: "60% OFF",
-        precioOriginal: "$80.000,00",
-        precioFinal: "$32.000,00",
-        cuotas: "6 cuotas de $5.333,33",
-        duracion: "4 semanas (16 horas)",
-        nivel: "FACIL"
-      },
+      id: "course2",
+      nombre: "Bases de Datos Relacionales con SQL",
+      descripcion: "Aprende a diseñar, crear y gestionar bases de datos relacionales utilizando MySQL y PostgreSQL.",
+      descuento: "30% OFF",
+      precioOriginal: "$70.000,00",
+      precioFinal: "$49.000,00",
+      cuotas: "6 cuotas de $8.166,67",
+      duracion: "8 semanas (32 horas)",
+      nivel: "MEDIO"
+    },
+    {
+      id: "course3",
+      nombre: "Fundamentos de Machine Learning con Python",
+      descripcion: "Explora los conceptos básicos de machine learning usando Python y librerías como Scikit-learn y Pandas.",
+      descuento: "40% OFF",
+      precioOriginal: "$120.000,00",
+      precioFinal: "$72.000,00",
+      cuotas: "6 cuotas de $12.000,00",
+      duracion: "10 semanas (40 horas)",
+      nivel: "DIFICIL"
+    },
+    {
+      id: "course4",
+      nombre: "Introducción al Desarrollo de Juegos con Unity",
+      descripcion: "Crea tus propios videojuegos en 2D y 3D utilizando Unity y el lenguaje C#.",
+      descuento: "20% OFF",
+      precioOriginal: "$90.000,00",
+      precioFinal: "$72.000,00",
+      cuotas: "6 cuotas de $12.000,00",
+      duracion: "8 semanas (32 horas)",
+      nivel: "MEDIO"
+    },
+    {
+      id: "course5",
+      nombre: "Automatización de Tareas con Python",
+      descripcion: "Automatiza tareas repetitivas y optimiza procesos aprendiendo a programar scripts en Python.",
+      descuento: "25% OFF",
+      precioOriginal: "$60.000,00",
+      precioFinal: "$45.000,00",
+      cuotas: "6 cuotas de $7.500,00",
+      duracion: "6 semanas (24 horas)",
+      nivel: "FACIL"
+    }
   ];
   
   const sliderContainer = document.querySelector('.slider-container');
@@ -90,4 +101,11 @@ const cursos = [
     const modal = document.getElementById('modalTemplate');
     modal.classList.remove('is-active'); // Ocultamos el modal
   }
+
+  function redirectToReserva() {
+    const finalPrice = document.querySelector(".final-price").textContent;
+  
+    window.location.href = `reservas.html?precioFinal=${encodeURIComponent(finalPrice)}`;
+  }
+  
   
