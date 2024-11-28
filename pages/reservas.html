@@ -31,6 +31,16 @@
                     <a href="#" class="navbar-item" id="cart-button"><i class="fas fa-shopping-cart"></i></a> 
                 </div>
             </nav>
+            <div id="cart-modal" class="modal-carrito">
+                <div class="modal-background-carrito"></div>
+                <div class="modal-content-carrito">
+                    <div class="box">
+                        <h2>Carrito de compras</h2>
+                        <p>Tu carrito está vacío.</p>
+                        <button class="modal-close is-large" aria-label="close">Cerrar</button> <!-- Botón para cerrar -->
+                    </div>
+                </div>
+            </div>
         </header>
         <main>
             <div class="container-reservas">
@@ -53,7 +63,7 @@
                                                 <p>Horarios: 8hs a 12hs</p>
                                             </div>
                                             <div class="card-button">
-                                                <button id="turno-m" onclick="seleccionarTurno('mañana-presencial')">Seleccionar</button>
+                                                <button id="turno-m">Seleccionar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -145,7 +155,7 @@
                                                 <h4>Isaac Newton</h4>
                                             </div>
                                             <div class="card-link">
-                                                <button id="profesor" onclick="seleccionarProfesor('Isaac Newton')">Seleccionar</button>
+                                                <button id="profesor">Seleccionar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -178,7 +188,7 @@
                                                 <h4>Esteban Hawkings</h4>
                                             </div>
                                             <div class="card-link">
-                                                <button id="profesor" onclick="seleccionarProfesor('Esteban Hawkings')">Seleccionar</button>
+                                                <button id="profesor">Seleccionar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -192,19 +202,20 @@
                         <!-- Calendario-->
                         <div class="calendar-container">
                             <form>
-                                <input type="date" id="fecha-curso" name="fecha-curso" min="hoy" max="2024-12-30" required>
+                                <input type="date" id="fecha-curso" name="fecha-curso"  max="2024-12-30" required>
                                 <span class="validity"></span>
-                                <button type="button" onclick="seleccionarFecha()">Confirmar Fecha</button>
+                                <button type="button">Confirmar Fecha</button>
                             </form>
                         </div>
                         <div class="botones-reserva">
-                            <button class="btn-reservar" onclick="confirmarReserva()">Confirmar Reserva</button>
+                            <button class="btn-reservar">Confirmar Reserva</button>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
     </body>
+    <script src="../scripts/js.js"></script>
     <script src="../scripts/swiper.js"></script>
     <script src="../scripts/navbar.js"></script>
     <script src="../scripts/carrito.js"></script>
