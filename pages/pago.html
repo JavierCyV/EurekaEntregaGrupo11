@@ -42,8 +42,8 @@
         </header>
         <main>
             <div class="container-pago">
-                <div>
-                    <div class="pago">
+                <div class="flex-container">
+                    <div class="flex-item form-payment">
                         <h1 id="titulo-nombre-curso"></h1>
                         <h1>Formulario de Pago</h1>
                         <div class="contenedor-pago">
@@ -148,14 +148,19 @@
                                     <option value="Responsable Inscripto">Responsable Inscripto</option>
                                 </select>
                             </form>
+                        </div>                        
+                    </div> 
+                    <div class="flex-item pago">
+                        <div class="detalle-pago">
+                            
                         </div>
                         <div class="balance-f">
                             <!-- Este valor se actualizará dinámicamente -->
                             <p>Total: $<span id="total-precio">0</span></p>
                             <!-- Botón para finalizar la selección -->
                             <button id="payment">Pagar</button>
-                        </div>                        
-                    </div>   
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

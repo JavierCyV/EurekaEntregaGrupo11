@@ -321,7 +321,7 @@ footer {
   border: none;
   color: black;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 2rem;
   padding: 1rem 1.5rem;
   text-decoration: underline; 
   transition: background-color 0.3s, color 0.3s;
@@ -876,14 +876,6 @@ form button:hover {
   margin-bottom: 40px;
 }
 
-.pago {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-}
-
 .border-containers {
   border-style: solid;
   border-width: 0px 2px 0px 0px;
@@ -892,7 +884,6 @@ form button:hover {
 
 .balance-f {
   display: flex;
-  bottom: 0;
   padding-bottom: 40px;
   width: 100%;
   justify-content: space-evenly;
@@ -1106,7 +1097,7 @@ form button:hover {
   border: none;
   color: black;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1rem;
   padding: 1rem 1.5rem;
   text-decoration: underline;
   transition: background-color 0.3s, color 0.3s;
@@ -1135,22 +1126,6 @@ form button:hover {
 }
 
 @media only screen and (max-width: 769px) {
-  .grid-container {
-    grid-template-areas:
-      'reserva reserva reserva reserva reserva reserva'
-      'reserva reserva reserva reserva reserva reserva'
-      'pago pago pago pago pago pago';
-  }
-  .reserva {
-    grid-area: reserva;
-    margin-right: 0px;
-    grid-column: 1 / span 6;
-  }
-  .pago {
-    grid-area: pago;
-    grid-column: 1 / span 6;
-    width: 100%;
-  }
   .balance-f {
     position: relative;
     bottom: 0;
@@ -1455,4 +1430,28 @@ form button:hover {
   100% {
       transform: translateX(-100%); /* Termina fuera del lado izquierdo */
   }
+}
+
+/* Pagina de Pago */
+
+.flex-container{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.flex-item{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.flex-item.form-payment{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-item.pago{
+  display: flex;
 }
