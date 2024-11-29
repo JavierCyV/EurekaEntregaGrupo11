@@ -59,8 +59,8 @@ const cursos = [
   const sliderContainer = document.querySelector('.slider-container');
   cursos.forEach(curso => {
 
-    let precioOriginalFormateado = new Intl.NumberFormat("de-DE", { minimumSignificantDigits: 2 }).format(curso.precioOriginal);
-    let precioFinalFormateado = new Intl.NumberFormat("de-DE", { minimumSignificantDigits: 2 }).format(curso.precioFinal);
+    let precioOriginalFormateado = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2 }).format(curso.precioOriginal);
+    let precioFinalFormateado = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2 }).format(curso.precioFinal);
 
     const courseDiv = document.createElement('div');
     courseDiv.classList.add('slide-item');
@@ -91,10 +91,12 @@ const cursos = [
     const courseData = cursos.find(curso => curso.id === courseId);
     if (courseData) {
       document.querySelector('.modal-titulo').textContent = courseData.nombre;
+      document.querySelector('.modal-titulo').setAttribute("value", courseData.nombre);
       document.querySelector('.discount').textContent = courseData.descuento;
       document.querySelector('.modal-description').textContent = courseData.descripcion;
-      document.querySelector('.original-price').textContent = new Intl.NumberFormat("de-DE", { minimumIntegerDigits: 2 }).format(courseData.precioOriginal) ;
-      document.querySelector('.final-price').textContent = courseData.precioFinal;
+      document.querySelector('.original-price').textContent = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2 }).format(courseData.precioOriginal);
+      document.querySelector('.final-price').textContent = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2 }).format(courseData.precioFinal);
+      document.querySelector('.final-price').setAttribute("value", courseData.precioFinal);
       document.querySelector('.modal-button').textContent = `Reserva tu cursada`;
       const modal = document.getElementById('modalTemplate');
       modal.classList.add('is-active'); // Mostramos el modal
@@ -107,8 +109,9 @@ const cursos = [
   }
 
   function redirectToReserva() {
-    const finalPrice = document.querySelector(".final-price").textContent;
-    const nombreCurso = document.querySelector('.modal-titulo').textContent;
+    
+    const finalPrice = document.querySelector('.final-price').getAttribute("value");
+    const nombreCurso = document.querySelector('.modal-titulo').getAttribute("value");
     
     window.location.href = `reservas.html?precioFinal=${encodeURIComponent(finalPrice)}&nombreCurso=${encodeURIComponent(nombreCurso)}`;
   }

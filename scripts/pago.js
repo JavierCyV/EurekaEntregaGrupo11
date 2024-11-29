@@ -64,12 +64,12 @@ document.getElementById('payment').addEventListener('click', function (event) {
 });
 
 function calcularTotal(cartItems) {
-    let precioTotal = 0.00;
+    let precioTotal = 0;
     cartItems.forEach(item => {
-        precioTotal =+ parseFloat(item.price);
+        precioTotal += Number(item.price);
     });  
     console.log("El precio total es: " + precioTotal);
-    return precioTotal;
+    return precioTotal = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2 }).format(precioTotal);
 } 
 
 const validatePaymentForm = () => {
