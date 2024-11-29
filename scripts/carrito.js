@@ -25,9 +25,11 @@ function updateCartDisplay() {
     } else {
         const itemsList = document.createElement('ul');
         cartItems.forEach(item => {
+            let precioFormateado = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2 }).format(item.price);
+
             const listItem = document.createElement('li');
             listItem.innerHTML = `
-                <strong>${item.name}</strong> - $${item.price} <br>
+                <strong>${item.name}</strong> - $${precioFormateado} <br>
                 Profesor: ${item.profesor || "No especificado"}<br>
                 Fecha: ${item.fecha || "No seleccionada"}<br>
                 Turno: ${item.turno || "No asignado"}

@@ -1,3 +1,10 @@
+window.onload= function() {
+    cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; // Recuperar el carrito desde localStorage
+    // Actualizacion del precio total
+    let total = calcularTotal(cartItems);
+    document.getElementById("total-precio").innerHTML = `${total || "0.00"}`;
+}
+
 document.getElementById('payment').addEventListener('click', function (event) {
     event.preventDefault();
 
@@ -55,6 +62,15 @@ document.getElementById('payment').addEventListener('click', function (event) {
 
     alert("Formulario enviado correctamente.");
 });
+
+function calcularTotal(cartItems) {
+    let precioTotal = 0;
+    cartItems.forEach(item => {
+        precioTotal += Number(item.price);
+    });  
+    console.log("El precio total es: " + precioTotal);
+    return precioTotal = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2 }).format(precioTotal);
+} 
 
 const validatePaymentForm = () => {
     // Lógica de validación

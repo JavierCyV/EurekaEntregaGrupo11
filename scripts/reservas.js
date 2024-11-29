@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
       // Agregar al carrito
       addToCart(reserva);
-      alert("Reserva confirmada y agregada al carrito: " + JSON.stringify(reserva));
+      alert(`Reserva confirmada y agregada al carrito!\nDetalles:\nCurso: ${reserva.name}\nPrecio: $${reserva.price}\nTurno: ${reserva.turno} - ${reserva.modalidad}\nProfesor: ${reserva.profesor}\nFecha de inicio: ${reserva.fecha}`);
 
       window.location.href = `../index.html`;
     });
