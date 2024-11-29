@@ -42,7 +42,7 @@ function updateCartDisplay() {
         // Agregar botón de "Pagar"
         const pagarButton = document.createElement('a');
         pagarButton.classList.add('btn-pagar-modal');
-        pagarButton.href = "/pages/pago.html";
+        pagarButton.href = "./pages/pago.html";
         pagarButton.textContent = 'Pagar';
         cartModalContent.appendChild(pagarButton);
     }
