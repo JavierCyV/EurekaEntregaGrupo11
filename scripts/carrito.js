@@ -1,6 +1,7 @@
 let cartItems = []; // Array para almacenar los artículos del carrito
 
 function addToCart(item) {
+    // Asegurarnos de que el objeto `item` tenga todas las propiedades necesarias
     cartItems.push(item); // Agregar el artículo al array
     updateCartDisplay(); // Actualizar la visualización del carrito
 }
@@ -15,12 +16,26 @@ function updateCartDisplay() {
         const itemsList = document.createElement('ul'); // Crear lista para los artículos
         cartItems.forEach(item => {
             const listItem = document.createElement('li');
-            listItem.textContent = `${item.name} - $${item.price}`; // Mostrar nombre y precio
+
+            // Mostrar detalles del artículo
+            listItem.innerHTML = `
+                <strong>${item.name}</strong> - $${item.price} <br>
+                Profesor: ${item.profesor || "No especificado"}<br>
+                Fecha: ${item.fecha || "No seleccionada"}<br>
+                Turno: ${item.turno || "No asignado"}
+            `;
+
             itemsList.appendChild(listItem);
         });
+
         cartModalContent.innerHTML = '<h2>Carrito de compras</h2>'; // Título
         cartModalContent.appendChild(itemsList); // Agregar lista al contenido del modal
-        cartModalContent.append('<a class="btn-pagar" href="./pages/pago.html" > Pagar </a>');
+
+        // Agregar el botón de "Pagar"
+        const pagarButton = document.createElement('a');
+        pagarButton.classList.add('btn-pagar');
+        pagarButton.href = './pages/pago.html';
+        pagarButton.textContent = 'Pagar';
+        cartModalContent.appendChild(pagarButton);
     }
 }
-

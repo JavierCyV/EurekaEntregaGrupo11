@@ -1,86 +1,120 @@
-window.onload= function() {
+// Arreglo para el carrito de compras
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; // Cargar carrito si ya existe
 
-    const date = new Date()
-    const currentYear = date.getFullYear();
-    const currentMonth = date.getMonth() + 1;
-    const currentDay = date.getDate();
-    const currentDate = currentYear + "-" + currentMonth + "-" + currentDay;
-    
-    document.querySelector('#fecha-curso').setAttribute("min", currentDate); // Setea la fecha de hoy como valor minimo para seleccionar fecha
+// Variables de reserva
+let selectedTurno = null;
+let selectedProfesor = null;
+let selectedFecha = null;
+let selectedCurso = null
+let selectedPrecio = null
+
+// Función para agregar un artículo al carrito
+function addToCart(item) {
+    cartItems.push(item); 
+    // Guardar carrito en LocalStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems)); 
+    updateCartDisplay(); 
+}
+
+function clearCart() {
+    cartItems = [];
+    localStorage.removeItem('cartItems'); // Eliminar carrito de LocalStorage
+    updateCartDisplay();
+}
+
+
+// Función para actualizar la visualización del carrito
+function updateCartDisplay() {
+    const cartModalContent = document.querySelector('.modal-content-carrito .box');
+    cartModalContent.innerHTML = ''; // Limpiar contenido previo
+
+    if (cartItems.length === 0) {
+        cartModalContent.innerHTML = '<h2>Carrito de compras</h2><p>Tu carrito está vacío.</p>';
+    } else {
+        const itemsList = document.createElement('ul');
+        cartItems.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <strong>${item.name}</strong> - $${item.price} <br>
+                Profesor: ${item.profesor || "No especificado"}<br>
+                Fecha: ${item.fecha || "No seleccionada"}<br>
+                Turno: ${item.turno || "No asignado"}
+            `;
+            itemsList.appendChild(listItem);
+        });
+        cartModalContent.innerHTML = '<h2>Carrito de compras</h2>';
+        cartModalContent.appendChild(itemsList);
+
+        // Agregar botón de "Pagar"
+        const pagarButton = document.createElement('a');
+        pagarButton.classList.add('btn-pagar');
+        pagarButton.href = './pages/pago.html';
+        pagarButton.textContent = 'Pagar';
+        cartModalContent.appendChild(pagarButton);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Variables globales para guardar las selecciones
-    let cursoNombre = sessionStorage.getItem("cursoNombre");
-    let precioCurso = parseFloat(sessionStorage.getItem("cursoPrecio"));
-    let turnoSeleccionado = null;
-    let profesorSeleccionado = null;
-    let fechaSeleccionada = null;
+    cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; // Recuperar el carrito desde localStorage
+    updateCartDisplay();
 
-    if (isNaN(cursoNombre) || isNaN(precioCurso)) {
-        console.error("No se encontraron los datos del curso en sessionStorage.");
-        document.getElementById("total-precio").textContent = "0";
-        return; // Salir si no hay datos válidos
+    // Obtener parámetros de la URL
+    const params = new URLSearchParams(window.location.search);
+    const cursoNombre = params.get("nombreCurso");
+    const precioCurso = params.get("precioFinal");
+
+    // Mostrar los datos recibidos en el DOM
+    if (cursoNombre && !isNaN(precioCurso)) {
+        document.getElementById("titulo-nombre-curso").textContent = cursoNombre;  // Mostrar nombre del curso
+        document.getElementById("total-precio").textContent = precioCurso.toFixed(2); // Mostrar precio del curso
+    } else {
+        console.error("Faltan datos en la URL o los datos no son válidos.");
     }
 
-    // Mostrar el nombre y el precio del curso
-    document.getElementById("titulo-nombre-curso").textContent = cursoNombre;
-    document.getElementById("total-precio").textContent = precioCurso.toFixed(2);
-
-    // Seleccionar turno
-    document.querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", function (event) {
-            event.preventDefault();
-            turnoSeleccionado = this.id;
-
-            // Ajustar precio según turno
-            let precioFinal = precioCurso;
-            if (turnoSeleccionado.includes("turno-m")) {
-                precioFinal *= 1.05; // Recargo del 5% para turno mañana
-            } else if (turnoSeleccionado.includes("turno-n")) {
-                precioFinal *= 0.95; // Descuento del 5% para turno noche
-            }
-            document.getElementById("total-precio").textContent = precioFinal.toFixed(2);
-        });
+    let selectedTurno = null;
+    let selectedProfesor = null;
+    let selectedFecha = null;
+    
+    // Manejo de selección de turnos
+    document.querySelectorAll(".card-button button").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        selectedTurno = event.target.closest(".card-description").querySelector(".card-title h3").textContent;
+        alert(`Turno seleccionado: ${selectedTurno}`);
+      });
     });
-
-    // Seleccionar profesor
-    document.querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", function (event) {
-            event.preventDefault();
-            profesorSeleccionado = this.id;
-            if (profesorSeleccionado.includes("profesor")) {
-                profesorSeleccionado = this.parentElement.parentElement.querySelector("h4").textContent;
-            }
-        });
+    
+    // Manejo de selección de profesor
+    document.querySelectorAll(".card-link button").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        selectedProfesor = event.target.closest(".card-description").querySelector(".card-title h4").textContent;
+        alert(`Profesor seleccionado: ${selectedProfesor}`);
+      });
     });
-
-    // Seleccionar fecha
-    document.getElementById("fecha-curso").addEventListener("change", function () {
-        fechaSeleccionada = this.value;
+    
+    // Manejo de selección de fecha
+    document.querySelector("#fecha-curso").addEventListener("change", (event) => {
+      selectedFecha = event.target.value;
+      alert(`Fecha seleccionada: ${selectedFecha}`);
     });
-
-    // Agregar datos al carrito
-    document.querySelectorAll(".btn-reservar").forEach(button => {
-        button.addEventListener("click", function (event) {
-            if (!turnoSeleccionado || !profesorSeleccionado || !fechaSeleccionada) {
-                alert("Por favor, completa todas las selecciones antes de continuar.");
-                event.preventDefault();
-                return;
-            }
-
-            // Crear objeto del carrito
-            const carritoItem = {
-                curso: cursoNombre,
-                precio: document.getElementById("total-precio").textContent,
-                turno: turnoSeleccionado,
-                profesor: profesorSeleccionado,
-                fecha: fechaSeleccionada,
-            };
-
-            // Guardar en sessionStorage
-            sessionStorage.setItem("carrito", JSON.stringify(carritoItem));
-        });
+    
+    // Confirmar reserva
+    document.querySelector(".btn-reservar").addEventListener("click", () => {
+      if (!selectedTurno || !selectedProfesor || !selectedFecha) {
+        alert("Por favor, completa todas las selecciones antes de continuar.");
+        return;
+      }
+    
+      const reserva = {
+        name: cursoNombre, // Usar el nombre del curso obtenido de la URL
+        price: precioCurso, // Usar el precio obtenido de la URL
+        turno: selectedTurno,
+        profesor: selectedProfesor,
+        fecha: selectedFecha,
+      };
+    
+      // Agregar al carrito
+      addToCart(reserva);
+      alert("Reserva confirmada y agregada al carrito: " + JSON.stringify(reserva));
     });
 });
 
