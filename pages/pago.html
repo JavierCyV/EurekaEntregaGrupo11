@@ -6,10 +6,8 @@
         <title>Grupo 11 - Eureka</title>
         <link rel="icon" href="../assets/logo (2).jfif">
         <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
     <body>
         <header>
@@ -28,24 +26,22 @@
                     <a href="cursos.html" class="navbar-item">Cursos</a>
                     <a href="comunidad.html" class="navbar-item">Comunidad</a>
                     <a href="contacto.html" class="navbar-item">Contacto</a>
-                    <a href="#" class="navbar-item" id="cart-button"><i class="fas fa-shopping-cart"></i></a> 
+                    <a href="#cart-modal" class="navbar-item open" id="cart-button"><i class="fas fa-shopping-cart"></i></a>
                 </div>
             </nav>
             
             <!-- Modal del carrito -->
             <div id="cart-modal" class="modal-carrito">
-                <div class="modal-background-carrito"></div>
+                <a href="#" class="modal-background-carrito"></a>
                 <div class="modal-content-carrito">
-                    <div class="box">
-                        <h2>Carrito de compras</h2>
+                        <a href="#" class="modal-exit">x</a> <!-- Botón para cerrar -->
+                        <h2 class="modal-title">Carrito de compras</h2>
                         <p>Tu carrito está vacío.</p>
-                        <button class="modal-close is-large" aria-label="close">Cerrar</button> <!-- Botón para cerrar -->
-                    </div>
                 </div>
             </div>
         </header>
         <main>
-            <div class="container-reservas">
+            <div class="container-pago">
                 <div>
                     <div class="pago">
                         <h1 id="titulo-nombre-curso"></h1>
@@ -154,8 +150,10 @@
                             </form>
                         </div>
                         <div class="balance-f">
-                            <p>Total: $<span id="total-precio">0</span></p> <!-- Este valor se actualizará dinámicamente -->
-                            <button id="send-to-cart">Pagar</button> <!-- Botón para finalizar la selección -->
+                            <!-- Este valor se actualizará dinámicamente -->
+                            <p>Total: $<span id="total-precio">0</span></p>
+                            <!-- Botón para finalizar la selección -->
+                            <button id="payment">Pagar</button>
                         </div>                        
                     </div>   
                 </div>
@@ -163,10 +161,8 @@
         </main>
         <!-- Swiper JS -->
         <script src="../scripts/js.js"></script>
-        <script src="../scripts/swiper.js"></script>
         <script src="../scripts/navbar.js"></script>
-        <!-- <script src="../scripts/carrito.js"></script> -->
-        <script src="../scripts/reservas.js"></script>
+        <script src="../scripts/carrito.js"></script>
         <script src="../scripts/pago.js"></script>
     </body>
 </html>

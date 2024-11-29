@@ -137,44 +137,72 @@ a.navbar-item.is-active {
 }
 
 /* Estilos para el modal del carrito */
+
 .modal-carrito {
-    display: none; /* Oculto por defecto */
-    position: fixed; /* Posición fija en la pantalla */
-    top: 0;
-    left: 0;
-    width: 100%; /* Ancho completo */
-    height: 100%; /* Alto completo */
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
-    justify-content: center; /* Centrar contenido horizontalmente */
-    align-items: center; /* Centrar contenido verticalmente */
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all .7s;
+  transition: all .7s;
 }
 
-.modal-carrito.is-active {
-    display: flex; /* Mostrar cuando está activo */
+.modal-carrito:target, .modal-carrito:target .modal-background-carrito {
+  display: block;
+  z-index: 100;
+  opacity: 1;
+  visibility: visible; 
 }
 
-.modal-background-carrito {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
+.modal-background-carrito:active, .modal-background-carrito:hover, .modal-background-carrito:visited, .modal-background-carrito:link {
+  text-decoration: none;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: all .7s;
+  transition: all .7s;
+  cursor: default;
+}
+
+.modal-carrito:target .modal-background-carrito {
+  z-index: 200; 
 }
 
 .modal-content-carrito {
-  background-color: black; 
-  padding: 2rem; 
-  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: black;
+  color: white;
   border: 2px solid #00BFFF; 
-  color: white; 
+  width: 60%;
+  height: auto;
+  border-radius: 2rem;
+  z-index: 300;
 }
 
-.modal-close-carrito {
-  cursor: pointer; /* Cambiar cursor al pasar sobre el botón de cerrar */
-  background-color: transparent; /* Fondo transparente */
-  border: none; /* Sin borde */
-  color: #00BFFF; /* Color del texto, puedes ajustarlo */
-  font-size: 16px; /* Tamaño del texto */
+.modal-content-carrito .modal-title{
+  text-align: center;
+}
+
+.modal-exit:link, .modal-exit:active, .modal-exit:visited, .modal-exit:hover {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 1.7rem;
+  text-decoration: none;
+  color: #F92A2A; 
 }
 
 
@@ -699,6 +727,7 @@ footer {
 
 .modal-footer .modal-button:hover {
   background-color: #333;
+  color: white;
 }
 
 span.close {
@@ -828,7 +857,7 @@ form button:hover {
 
 /* Reservas */
 
-.container-reservas {
+.container-reservas, .container-pago{
   display: block;
   min-height: 94vh;
   height: auto;
@@ -863,15 +892,14 @@ form button:hover {
 
 .balance-f {
   display: flex;
-  position: relative;
   bottom: 0;
   padding-bottom: 40px;
   width: 100%;
+  justify-content: space-evenly;
 }
 
 .balance-f p{
   width: auto;
-  margin-right: auto;
 }
 
 .calendar-container{
@@ -923,6 +951,30 @@ form button:hover {
   font-size: 16px;
   transition: 0.3s ease;
   text-decoration: none;
+}
+
+.btn-pagar-modal {
+  display: block;
+  margin: auto;
+  height: auto;
+  width: min-content;
+  padding: 10px 50px;
+  background-color: #40D3E2;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.btn-pagar-modal:hover {
+  background-color: black;
+  color: white;
+  transition: 0.3s ease;
+  border-style: solid;
+  border-color: white;
+  border-radius: 5px;
 }
 
 /* Título del formulario */
@@ -1018,19 +1070,26 @@ form button:hover {
 
 /* Botón de envío */
 .balance-f button {
-  width: 30%;
-  padding: 10px;
+  display: block;
+  height: auto;
+  width: min-content;
+  padding: 10px 50px;
   background-color: #4CAF50;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  transition: 0.3s ease;
+  text-decoration: none;
 }
 
 .balance-f button:hover {
-  background-color: #45a049;
+  background-color: white;
+  color: black;
+  transition: 0.3s ease;
+  border-style: solid;
+  border-color: black;
+  border-radius: 5px;
 }
 
 @media (max-width: 1600px){

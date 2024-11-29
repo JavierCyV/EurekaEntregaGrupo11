@@ -86,7 +86,7 @@ const cursos = [
   function openModal(courseId) {
     const courseData = cursos.find(curso => curso.id === courseId);
     if (courseData) {
-      document.querySelector('.modal-title').textContent = courseData.nombre;
+      document.querySelector('.modal-titulo').textContent = courseData.nombre;
       document.querySelector('.discount').textContent = courseData.descuento;
       document.querySelector('.modal-description').textContent = courseData.descripcion;
       document.querySelector('.original-price').textContent = courseData.precioOriginal;
@@ -104,7 +104,7 @@ const cursos = [
 
   function redirectToReserva() {
     const finalPrice = document.querySelector(".final-price").textContent;
-    const nombreCurso = document.querySelector('.modal-title').textContent;
+    const nombreCurso = document.querySelector('.modal-titulo').textContent;
     
     window.location.href = `reservas.html?precioFinal=${encodeURIComponent(finalPrice)}&nombreCurso=${encodeURIComponent(nombreCurso)}`;
   }

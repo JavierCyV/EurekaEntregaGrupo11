@@ -1,4 +1,4 @@
-document.getElementById('submit-button').addEventListener('click', function (event) {
+document.getElementById('payment').addEventListener('click', function (event) {
     event.preventDefault();
 
     // Validación del formulario de pago
@@ -29,6 +29,23 @@ document.getElementById('submit-button').addEventListener('click', function (eve
         return;
     }
 
+    const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const validateCardNumber = (number) => /^\d{16}$/.test(number); // Ejemplo para tarjetas de 16 dígitos
+    const validateSecurityCode = (code) => /^\d{3,4}$/.test(code);
+
+    if (!validateEmail(email)) {
+        alert("Ingrese un email válido.");
+        return;
+    }
+    if (!validateCardNumber(cardNumber)) {
+        alert("Número de tarjeta inválido.");
+        return;
+    }
+    if (!validateSecurityCode(securityCode)) {
+        alert("Código de seguridad inválido.");
+        return;
+    }
+
     // Mostrar datos en consola (simulación de envío)
     console.log("Datos de pago:");
     console.log({ cardNumber, cardHolder, expiryDate, securityCode, installments });
@@ -39,22 +56,6 @@ document.getElementById('submit-button').addEventListener('click', function (eve
     alert("Formulario enviado correctamente.");
 });
 
-const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-const validateCardNumber = (number) => /^\d{16}$/.test(number); // Ejemplo para tarjetas de 16 dígitos
-const validateSecurityCode = (code) => /^\d{3,4}$/.test(code);
-
-if (!validateEmail(email)) {
-    alert("Ingrese un email válido.");
-    return;
-}
-if (!validateCardNumber(cardNumber)) {
-    alert("Número de tarjeta inválido.");
-    return;
-}
-if (!validateSecurityCode(securityCode)) {
-    alert("Código de seguridad inválido.");
-    return;
-}
 const validatePaymentForm = () => {
     // Lógica de validación
 };
@@ -70,4 +71,4 @@ const submitForm = () => {
     }
 };
 
-document.getElementById('submit-button').addEventListener('click', submitForm);
+document.getElementById('payment').addEventListener('click', submitForm);

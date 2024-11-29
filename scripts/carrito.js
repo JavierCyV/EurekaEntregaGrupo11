@@ -1,40 +1,46 @@
-let cartItems = []; // Array para almacenar los artículos del carrito
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; // Cargar carrito si ya existe
+updateCartDisplay();
 
+// Función para agregar un artículo al carrito
 function addToCart(item) {
-    // Asegurarnos de que el objeto `item` tenga todas las propiedades necesarias
-    cartItems.push(item); // Agregar el artículo al array
-    updateCartDisplay(); // Actualizar la visualización del carrito
+    cartItems.push(item); 
+    // Guardar carrito en LocalStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems)); 
+    updateCartDisplay(); 
 }
 
+function clearCart() {
+    cartItems = [];
+    localStorage.removeItem('cartItems'); // Eliminar carrito de LocalStorage
+    updateCartDisplay();
+}
+
+// Función para actualizar la visualización del carrito
 function updateCartDisplay() {
-    const cartModalContent = document.querySelector('.modal-content-carrito .box');
+    const cartModalContent = document.querySelector('.modal-content-carrito');
     cartModalContent.innerHTML = ''; // Limpiar contenido previo
 
     if (cartItems.length === 0) {
-        cartModalContent.innerHTML = '<h2>Carrito de compras</h2><p>Tu carrito está vacío.</p>';
+        cartModalContent.innerHTML = '<a href="#" class="modal-exit">x</a><h2 class="modal-title">Carrito de compras</h2><p>Tu carrito está vacío.</p>';
     } else {
-        const itemsList = document.createElement('ul'); // Crear lista para los artículos
+        const itemsList = document.createElement('ul');
         cartItems.forEach(item => {
             const listItem = document.createElement('li');
-
-            // Mostrar detalles del artículo
             listItem.innerHTML = `
                 <strong>${item.name}</strong> - $${item.price} <br>
                 Profesor: ${item.profesor || "No especificado"}<br>
                 Fecha: ${item.fecha || "No seleccionada"}<br>
                 Turno: ${item.turno || "No asignado"}
             `;
-
             itemsList.appendChild(listItem);
         });
+        cartModalContent.innerHTML = '<a href="#" class="modal-exit">x</a> <h2 class="modal-title">Carrito de compras</h2>';
+        cartModalContent.appendChild(itemsList);
 
-        cartModalContent.innerHTML = '<h2>Carrito de compras</h2>'; // Título
-        cartModalContent.appendChild(itemsList); // Agregar lista al contenido del modal
-
-        // Agregar el botón de "Pagar"
+        // Agregar botón de "Pagar"
         const pagarButton = document.createElement('a');
-        pagarButton.classList.add('btn-pagar');
-        pagarButton.href = './pages/pago.html';
+        pagarButton.classList.add('btn-pagar-modal');
+        pagarButton.href = "/pages/pago.html";
         pagarButton.textContent = 'Pagar';
         cartModalContent.appendChild(pagarButton);
     }

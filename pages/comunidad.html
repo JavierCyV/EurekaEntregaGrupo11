@@ -31,18 +31,16 @@
                         <a href="cursos.html" class="navbar-item">Cursos</a>
                         <a href="comunidad.html" class="navbar-item">Comunidad</a>
                         <a href="contacto.html" class="navbar-item">Contacto</a>
-                        <a href="#" class="navbar-item" id="cart-button"><i class="fas fa-shopping-cart"></i></a> 
+                        <a href="#cart-modal" class="navbar-item open" id="cart-button"><i class="fas fa-shopping-cart"></i></a>
                     </div>
                 </nav>
                 <!-- Modal del carrito -->
                 <div id="cart-modal" class="modal-carrito">
-                    <div class="modal-background-carrito"></div>
+                    <a href="#" class="modal-background-carrito"></a>
                     <div class="modal-content-carrito">
-                        <div class="box">
-                            <h2>Carrito de compras</h2>
+                            <a href="#" class="modal-exit">x</a> <!-- Botón para cerrar -->
+                            <h2 class="modal-title">Carrito de compras</h2>
                             <p>Tu carrito está vacío.</p>
-                            <button class="modal-close is-large" aria-label="close">Cerrar</button> <!-- Botón para cerrar -->
-                        </div>
                     </div>
                 </div>
             </header>
@@ -88,6 +86,6 @@
         <script src="../scripts/js.js"></script>
         <script src="../scripts/comunidad.js"></script>
         <script src="../scripts/navbar.js"></script>
- <!-- <script src="../scripts/carrito.js"></script> -->
-        <script src="../scripts/reservas.js"></script>    </body>
+        <script src="../scripts/carrito.js"></script>
+    </body>
 </html>
