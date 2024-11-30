@@ -9,6 +9,14 @@ function addToCart(item) {
     updateCartDisplay(); 
 }
 
+// Función para eliminar un artículo específico del carrito
+function removeFromCart(index) {
+    cartItems.splice(index, 1); // Eliminar el artículo por índice
+    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Actualizar LocalStorage
+    updateCartDisplay(); // Actualizar vista
+}
+
+// Función para vaciar el carrito
 function clearCart() {
     cartItems = [];
     localStorage.removeItem('cartItems'); // Eliminar carrito de LocalStorage
@@ -23,8 +31,11 @@ function updateCartDisplay() {
     if (cartItems.length === 0) {
         cartModalContent.innerHTML = '<a href="#" class="modal-exit">x</a><h2 class="modal-title">Carrito de compras</h2><p>Tu carrito está vacío.</p>';
     } else {
+        const itemsContainer = document.createElement('div'); // Contenedor desplazable
+        itemsContainer.classList.add('cart-items-container');
+
         const itemsList = document.createElement('ul');
-        cartItems.forEach(item => {
+        cartItems.forEach((item, index) => {
             let precioFormateado = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2 }).format(item.price);
 
             const listItem = document.createElement('li');
@@ -32,18 +43,32 @@ function updateCartDisplay() {
                 <strong>${item.name}</strong> - $${precioFormateado} <br>
                 Profesor: ${item.profesor || "No especificado"}<br>
                 Fecha: ${item.fecha || "No seleccionada"}<br>
-                Turno: ${item.turno || "No asignado"}<br><br>
+                Turno: ${item.turno || "No asignado"}<br>
             `;
+
+            const removeButton = document.createElement('button');
+            removeButton.textContent = "Eliminar";
+            removeButton.classList.add('btn-eliminar');
+            removeButton.addEventListener('click', () => removeFromCart(index));
+            listItem.appendChild(removeButton);
             itemsList.appendChild(listItem);
         });
-        cartModalContent.innerHTML = '<a href="#" class="modal-exit">x</a> <h2 class="modal-title">Carrito de compras</h2><br>';
-        cartModalContent.appendChild(itemsList);
 
-        // Agregar botón de "Pagar"
+        itemsContainer.appendChild(itemsList); // Agregar lista al contenedor desplazable
+        cartModalContent.innerHTML = '<a href="#" class="modal-exit">x</a><h2 class="modal-title">Carrito de compras</h2>';
+        cartModalContent.appendChild(itemsContainer);
+
         const pagarButton = document.createElement('a');
         pagarButton.classList.add('btn-pagar-modal');
-        pagarButton.href = "./pages/pago.html";
+        pagarButton.href = "pages/pago.html";
         pagarButton.textContent = 'Pagar';
         cartModalContent.appendChild(pagarButton);
+
+        const clearCartButton = document.createElement('button');
+        clearCartButton.classList.add('btn-vaciar-carrito');
+        clearCartButton.textContent = 'Vaciar carrito';
+        clearCartButton.addEventListener('click', clearCart);
+        cartModalContent.appendChild(clearCartButton);
     }
 }
+
