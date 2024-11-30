@@ -32,11 +32,11 @@ function updateCartDisplay() {
                 <strong>${item.name}</strong> - $${precioFormateado} <br>
                 Profesor: ${item.profesor || "No especificado"}<br>
                 Fecha: ${item.fecha || "No seleccionada"}<br>
-                Turno: ${item.turno || "No asignado"}
+                Turno: ${item.turno || "No asignado"}<br><br>
             `;
             itemsList.appendChild(listItem);
         });
-        cartModalContent.innerHTML = '<a href="#" class="modal-exit">x</a> <h2 class="modal-title">Carrito de compras</h2>';
+        cartModalContent.innerHTML = '<a href="#" class="modal-exit">x</a> <h2 class="modal-title">Carrito de compras</h2><br>';
         cartModalContent.appendChild(itemsList);
 
         // Agregar botón de "Pagar"

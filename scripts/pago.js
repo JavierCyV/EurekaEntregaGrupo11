@@ -3,6 +3,8 @@ window.onload= function() {
     // Actualizacion del precio total
     let total = calcularTotal(cartItems);
     document.getElementById("total-precio").innerHTML = `${total || "0.00"}`;
+
+    cargarDetallesCompra(cartItems);
 }
 
 document.getElementById('payment').addEventListener('click', function (event) {
@@ -62,6 +64,49 @@ document.getElementById('payment').addEventListener('click', function (event) {
 
     alert("Formulario enviado correctamente.");
 });
+
+function cargarDetallesCompra(cartItems){
+
+    const itemsCompraSection = document.getElementById("detalle-section");
+
+     // Crear el contenedor de preguntas frecuentes
+     const itemsCompraList = document.createElement("div");
+     itemsCompraList.classList.add("items-container");
+ 
+     // Generar las preguntas y respuestas
+     cartItems.forEach(item => {
+         const itemCompra = document.createElement("details");
+         const itemNameCurso = document.createElement("summary");
+         const separator = document.createElement("div");
+         const detailElementTurno = document.createElement("p");
+         const detailElementModalidad = document.createElement("p");
+         const detailElementProfesor = document.createElement("p");
+         const detailElementFecha = document.createElement("p");
+         const detailElementPrecio = document.createElement("p");
+
+         separator.classList.add("separator");
+         precioFormateado = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2 }).format(item.price);
+
+         itemNameCurso.textContent = "Curso - "+item.name;
+         detailElementTurno.textContent = "Turno: "+item.turno;
+         detailElementModalidad.textContent = "Modalidad: "+item.modalidad;
+         detailElementProfesor.textContent = "Profesor: "+item.name;
+         detailElementFecha.textContent = "Fecha de inicio: "+item.name;
+         detailElementPrecio.textContent = "Precio: $" + precioFormateado;
+ 
+         itemCompra.appendChild(itemNameCurso);
+         itemCompra.appendChild(separator);
+         itemCompra.appendChild(detailElementTurno);
+         itemCompra.appendChild(detailElementModalidad);
+         itemCompra.appendChild(detailElementProfesor);
+         itemCompra.appendChild(detailElementFecha);
+         itemCompra.appendChild(detailElementPrecio);
+         itemsCompraList.appendChild(itemCompra);
+     });
+ 
+     // Añadir el contenedor de preguntas frecuentes a la sección
+     itemsCompraSection.appendChild(itemsCompraList);
+}
 
 function calcularTotal(cartItems) {
     let precioTotal = 0;

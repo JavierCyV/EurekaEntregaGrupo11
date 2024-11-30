@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Manejo de selección de turnos
     document.querySelectorAll(".card-button button").forEach((button) => {
       button.addEventListener("click", (event) => {
-        selectedTurno = event.target.closest(".card-description").querySelector(".card-title h3").textContent;
+        selectedTurno = event.target.closest(".card-description").querySelector(".card-title h3 span#turno").textContent;
         selectedModalidad = event.target.closest(".card-description").querySelector(".card-title h4").textContent;
         console.log(`Turno seleccionado: ${selectedTurno} - ${selectedModalidad}`);
       });
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
       addToCart(reserva);
       alert(`Reserva confirmada y agregada al carrito!\nDetalles:\nCurso: ${reserva.name}\nPrecio: $${reserva.price}\nTurno: ${reserva.turno} - ${reserva.modalidad}\nProfesor: ${reserva.profesor}\nFecha de inicio: ${reserva.fecha}`);
 
-      window.location.href = `../index.html`;
+      window.location.href = `./cursos.html`;
     });
 });
 

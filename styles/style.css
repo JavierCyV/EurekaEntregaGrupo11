@@ -884,9 +884,11 @@ form button:hover {
 
 .balance-f {
   display: flex;
-  padding-bottom: 40px;
-  width: 100%;
+  padding: 20px 10px;
+  max-width: 100%;
   justify-content: space-evenly;
+  background-color: rgb(235, 235, 235);
+  border-radius: 7px;
 }
 
 .balance-f p{
@@ -1126,12 +1128,6 @@ form button:hover {
 }
 
 @media only screen and (max-width: 769px) {
-  .balance-f {
-    position: relative;
-    bottom: 0;
-    padding-bottom: 40px;
-    width: 100%;
-  }
   .border-containers {
     border-style: none;
   }
@@ -1437,21 +1433,90 @@ form button:hover {
 .flex-container{
   display: flex;
   flex-direction: row;
-
 }
 
 .flex-item{
   display: flex;
   width: 100%;
   flex-direction: column;
+  align-items: center;
 }
 
 .flex-item.form-payment{
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .flex-item.pago{
   display: flex;
+  align-items: stretch;
+}
+
+.detalle-compra{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+.detalle-compra h1{
+  display: flex;
+  justify-content: center;
+}
+
+.items-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 90%;
+  height: auto;
+  padding: 0px 20px;
+}
+
+.item-compra{
+  display: flex;
+  padding: 10px;
+  min-height: 40px;
+  align-items: center;
+}
+
+.items-container details {
+  width: 100%;
+  max-width: 90%;
+  padding: 1rem;
+  border: 1px solid #dbdbdb;
+  border-radius: 15px;
+  margin: 5px auto;
+}
+
+.items-container summary {
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.items-container p {
+  margin-left: 2rem;
+  color: #1e1e1e;
+}
+
+.items-container .separator {
+  margin: 16px;
+  border-top: 1px solid #dbdbdb;
+}
+
+.underline-text{
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 1024px) {
+  .flex-container{
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .balance-f button {
+    padding: 10px;
+  }
 }
