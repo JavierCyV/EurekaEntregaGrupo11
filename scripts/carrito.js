@@ -58,11 +58,18 @@ function updateCartDisplay() {
         cartModalContent.innerHTML = '<a href="#" class="modal-exit">x</a><h2 class="modal-title">Carrito de compras</h2>';
         cartModalContent.appendChild(itemsContainer);
 
+        // Botón "Pagar" con navegación controlada
         const pagarButton = document.createElement('a');
         pagarButton.classList.add('btn-pagar-modal');
-        pagarButton.href = "pages/pago.html";
+        pagarButton.href = "/pages/pago.html"; // Ruta absoluta
         pagarButton.textContent = 'Pagar';
+        pagarButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            console.log('Navegando a', pagarButton.href);
+            window.location.href = pagarButton.href; // Redirige a la página de pago
+        });
         cartModalContent.appendChild(pagarButton);
+
 
         const clearCartButton = document.createElement('button');
         clearCartButton.classList.add('btn-vaciar-carrito');
